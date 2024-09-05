@@ -1,0 +1,51 @@
+---
+import Button from "./Button.astro"
+---
+
+<header>
+  <nav>
+    <a href="/"><h2>AskExperts</h2></a>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/team">Team</a></li>
+      <li><a href="/case_study">Case study</a></li>
+    </ul>
+
+  <Button btn_text="Login"></Button>
+    
+  </nav>
+</header>
+
+<style>
+  header {
+    background-color: var(--black-color);
+    padding: 38px;
+  }
+
+  nav {
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: space-between;
+    align-items: center;
+
+    & a {
+      text-decoration: none;
+      color: var(--gray-color);
+    }
+  }
+
+  ul {
+    display: flex;
+
+    gap: 1rem;
+
+    & li {
+      list-style-type: none;
+      & a {
+      }
+    }
+  }
+
+ 
+</style>

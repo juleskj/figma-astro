@@ -1,0 +1,78 @@
+---
+const { title } = Astro.props;
+import Footer from "./Footer.astro";
+import Header from "./Header.astro";
+import Button from "./Button.astro";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <link rel="stylesheet" href="/styles/reset.css" />
+    <link rel="stylesheet" href="/styles/global.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <slot />
+
+      <div id="news_container">
+        <div class="text_container">
+          <h4>Subscribe Our Newsletter</h4>
+          <p>Build stronger Customer Relationships with Consultalk</p>
+        </div>
+        <form id="newsletter">
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="your email address"
+          />
+          <!-- <button type={btn_type} form={form_id} value={btn_value}
+  >{btn_text}</button> -->
+          <Button btn_type="submit"btn_value="submit" from_id="newsletter" btn_text="Subscribe"></Button>
+        </form>
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+
+#news_container{
+  background-color: var(--black-color);
+  padding: 36px;
+  border-radius:var(--border-radius) ;
+  display: flex;
+  flex-flow:row wrap;
+  align-items:center;
+justify-content:space-between;
+
+   & .text_container{
+    color: var(--white-color);
+   }
+
+
+   & input{
+    background-color: var(--white-color);
+    border-radius:var(--border-radius);
+   }
+  
+}
+
+
+  body {
+    background-color: var(--background-color);
+  }
+</style>
