@@ -4,6 +4,7 @@
   --feature-width: minmax(0, 2rem);
   --flow-space: 0.5rlh;
   --border-radius: 42px;
+  --small-border-radius: 20px;
 
   --small-padding: 4px 16px;
   --big-padding: 15px 45px;
