@@ -1,16 +1,30 @@
 ---
-const { btn_type, btn_value, form_id, btn_text, btn_color, btn_padding, size, variant } = Astro.props;
+const {
+  btn_type,
+  btn_value,
+  form_id,
+  btn_text,
+  btn_color,
+  btn_padding,
+  size,
+  variant,
+} = Astro.props;
 ---
 
 <button class={size} type={btn_type} form={form_id} value={btn_value}
-  >{btn_text}</button>
+  >{btn_text}</button
+>
 
 <style>
-   button {
-    display:flex;
-   
-   justify-content:center;
-    --btn-color: color-mix(in oklab, var(--yellow-color), var(--mix-with, 0% #fff));
+  button {
+    display: flex;
+
+    justify-content: center;
+    --btn-color: color-mix(
+      in oklab,
+      var(--yellow-color),
+      var(--mix-with, 0% #fff)
+    );
     background-color: var(--btn-color);
     border-radius: var(--border-radius);
     &:hover {
@@ -19,22 +33,19 @@ const { btn_type, btn_value, form_id, btn_text, btn_color, btn_padding, size, va
     &:active {
       --mix-with: 20% #000;
     }
-    
-    
   }
 
-.big_btn{
-    padding:var(--big-padding);
-}
+  .big_btn {
+    padding: var(--big-padding);
+  }
 
-.small_btn{
-    padding:var(--small-padding);
-}
+  .small_btn {
+    padding: var(--small-padding);
+  }
 
-@media (width < 500px){
-    button{
-        flex: 1 1 20px;
+  @media (width < 500px) {
+    button {
+      flex: 1 1 20px;
     }
-}
-  
+  }
 </style>
