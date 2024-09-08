@@ -1,103 +1,27 @@
 ---
 import Layout from "../components/Layout.astro";
 import Button from "../components/Button.astro";
+import Image_with_list from "../components/Image_with_list.astro";
 ---
 
 <Layout title="Forside">
-  <div class="img_text_containter">
-    <div class="img_container">
-      <img
-        class="index1"
-        src="/images/work_with_us.png"
-        alt="picture of people working together"
-      />
-      <img class="dots index-1" src="/images/dots.svg" alt="svg" />
-      <div class="green index-1"></div>
-    </div>
-    <div class="text_container">
-      <div class="tag">we'll work with you</div>
-      <h2>what to expect</h2>
-      <p>
-        Lorem ipsum dolhor sit amet consectetur adipisicing elit. Officia eos,
-        maiores autem qui animi sequi aut dolores et dicta voluptates laboriosam
-        doloribus voluptas nisi velit porro sunt odio molestiae iusto!
-      </p>
-      <ol>
-        <li>
-          Bring to the table win-win survival strategies to ensure proactive
-          domination. At the end of the day.
-        </li>
-        <li>
-          apitalize on low hanging fruit to identify a ballpark value added
-          activity to beta test override the digital
-        </li>
-      </ol>
-    </div>
-  </div>
+  <Image_with_list
+    position_green="left_top_green"
+    position_dots="left_top_dots"
+    list_header="what to expect"
+    list_tag="we'll work with you"
+    display_container="display-flex_img-container"
+  >
+    <img
+      class="image_with_list"
+      src="/images/work_with_us.png"
+      alt="picture of people working together"
+    />
+  </Image_with_list>
 </Layout>
 
 <style>
-  .img_text_containter {
-    display: flex;
-    flex-flow: wrap row;
-    gap: 2rem;
-
-    & :is(.text_container, .img_container) {
-      flex: 1 1 300px;
-    }
-  }
-  .img_container {
-    position: relative;
-    padding-top: 4rem;
-
-    & .dots {
-      position: absolute;
-      width: 300px;
-      height: 300px;
-      top: 0;
-      bottom:;
-      right:;
-      left: -10%;
-    }
-    & .green {
-      position: absolute;
-      background-color: var(--green-color);
-      width: 165px;
-      height: 185px;
-
-      top: 5%;
-      bottom:;
-      right:;
-      left: -5%;
-      border-radius: var(--small-border-radius);
-    }
-  }
-  .index1 {
-    z-index: 1;
+  .image_with_list {
     border-radius: var(--small-border-radius);
-  }
-  .index-1 {
-    z-index: -1;
-  }
-
-  .text_container {
-    display: flex;
-    flex-flow: wrap column;
-    gap: 1rem;
-    & h2 {
-      text-transform: capitalize;
-    }
-
-    & li {
-      list-style-type: none;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 1rem;
-    }
-    & li:before {
-      content: url(/images/tick.svg);
-      display: inline-block;
-    }
   }
 </style>
