@@ -1,31 +1,103 @@
 ---
 import Layout from "../components/Layout.astro";
+import Button from "../components/Button.astro";
 ---
 
 <Layout title="Forside">
-  <h1>ASTRO</h1>
-  <h2>ASTRO</h2>
-  <h3>ASTRO</h3>
-  <h4>ASTRO</h4>
-  <h5>ASTRO</h5>
-  <h6>ASTRO</h6>
-  <div class="full-bleed">
-    <p>
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro eum quos
-      veritatis ipsam, ipsa atque ab aut adipisci! Eius delectus dolores
-      doloribus consequuntur, omnis eos maxime in odit obcaecati neque.
-    </p>
+  <div class="img_text_containter">
+    <div class="img_container">
+      <img
+        class="index1"
+        src="/images/work_with_us.png"
+        alt="picture of people working together"
+      />
+      <img class="dots index-1" src="/images/dots.svg" alt="svg" />
+      <div class="green index-1"></div>
+    </div>
+    <div class="text_container">
+      <div class="tag">we'll work with you</div>
+      <h2>what to expect</h2>
+      <p>
+        Lorem ipsum dolhor sit amet consectetur adipisicing elit. Officia eos,
+        maiores autem qui animi sequi aut dolores et dicta voluptates laboriosam
+        doloribus voluptas nisi velit porro sunt odio molestiae iusto!
+      </p>
+      <ol>
+        <li>
+          Bring to the table win-win survival strategies to ensure proactive
+          domination. At the end of the day.
+        </li>
+        <li>
+          apitalize on low hanging fruit to identify a ballpark value added
+          activity to beta test override the digital
+        </li>
+      </ol>
+    </div>
   </div>
-  <p class="feature">
-    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro eum quos
-    veritatis ipsam, ipsa atque ab aut adipisci! Eius delectus dolores doloribus
-    consequuntur, omnis eos maxime in odit obcaecati neque.
-  </p>
 </Layout>
 
 <style>
-  p,
-  .full-bleed {
-    background-color: blue;
+  .img_text_containter {
+    display: flex;
+    flex-flow: wrap row;
+    gap: 2rem;
+
+    & :is(.text_container, .img_container) {
+      flex: 1 1 300px;
+    }
+  }
+  .img_container {
+    position: relative;
+    padding-top: 4rem;
+
+    & .dots {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      top: 0;
+      bottom:;
+      right:;
+      left: -10%;
+    }
+    & .green {
+      position: absolute;
+      background-color: var(--green-color);
+      width: 165px;
+      height: 185px;
+
+      top: 5%;
+      bottom:;
+      right:;
+      left: -5%;
+      border-radius: var(--small-border-radius);
+    }
+  }
+  .index1 {
+    z-index: 1;
+    border-radius: var(--small-border-radius);
+  }
+  .index-1 {
+    z-index: -1;
+  }
+
+  .text_container {
+    display: flex;
+    flex-flow: wrap column;
+    gap: 1rem;
+    & h2 {
+      text-transform: capitalize;
+    }
+
+    & li {
+      list-style-type: none;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    & li:before {
+      content: url(/images/tick.svg);
+      display: inline-block;
+    }
   }
 </style>
