@@ -10,18 +10,108 @@ import Image_with_list from "../components/Image_with_list.astro";
     position_dots="left_top_dots"
     list_header="what to expect"
     list_tag="we'll work with you"
-    display_container="display-flex_img-container"
   >
     <img
-      class="image_with_list"
+      class="img_border"
       src="/images/work_with_us.png"
       alt="picture of people working together"
+      slot="img_slot"
     />
+
+    <li slot="list_container" class="tick">
+      Bring to the table win-win survival strategies to ensure proactive
+      domination. At the end of the day.
+    </li>
+    <li slot="list_container" class="tick">
+      apitalize on low hanging fruit to identify a ballpark value added activity
+      to beta test override the digital
+    </li>
+  </Image_with_list>
+  <Image_with_list
+    position_green="left_bottom_green"
+    position_dots="right_top_dots"
+    list_header="contact us. it's easy."
+    list_tag="process"
+    grid_container="grid_img-container"
+    flex_row="flex_row-reverse"
+  >
+    <img
+      class="img_border span-2"
+      src="/images/process2.png"
+      alt="picture of people working together"
+      slot="img_slot"
+    />
+    <img
+      class="img_border"
+      src="/images/process3.png"
+      alt="picture of people working together"
+      slot="img_slot"
+    />
+    <img
+      class="img_border"
+      src="/images/process1.png"
+      alt="picture of people working together"
+      slot="img_slot"
+    />
+    <li slot="list_container" class="contact call">
+      <div class="info">
+        <p>call today</p>
+        <h6>+1 800 100 900</h6>
+      </div>
+    </li>
+    <li slot="list_container" class="contact time">
+      <div class="info">
+        <p>monday til friday</p>
+        <h6>9AM - 5PM</h6>
+      </div>
+    </li>
+    <li slot="list_container" class="contact location">
+      <div class="info">
+        <p>USA office</p>
+        <h6>195 Devonshire St Boston, MA 02110</h6>
+      </div>
+    </li>
   </Image_with_list>
 </Layout>
 
 <style>
-  .image_with_list {
+  .img_border {
     border-radius: var(--small-border-radius);
+  }
+
+  .span-2 {
+    grid-row: 1 / span 2;
+  }
+
+  li {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    text-transform: capitalize;
+  }
+  .call:before {
+    content: url(/images/call.svg);
+    display: inline-block;
+  }
+
+  .location:before {
+    content: url(/images/location.svg);
+    display: inline-block;
+  }
+  .time:before {
+    content: url(/images/time.svg);
+    display: inline-block;
+  }
+
+  .tick:before {
+    content: url(/images/tick.svg);
+    display: inline-block;
   }
 </style>

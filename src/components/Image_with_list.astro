@@ -1,16 +1,17 @@
 ---
 const {
   list_header,
+  flex_row,
   list_tag,
   position_green,
   position_dots,
-  display_container,
+  grid_container,
 } = Astro.props;
 ---
 
-<div id="img_text_containter" class={display_container}>
-  <div class="img_container">
-    <slot />
+<div id="img_text_containter" class={flex_row}>
+  <div id="img_container" class={grid_container}>
+    <slot name="img_slot" />
 
     <img id="dots" class={position_dots} src="/images/dots.svg" alt="svg" />
     <div id="green" class={position_green}></div>
@@ -24,36 +25,29 @@ const {
       doloribus voluptas nisi velit porro sunt odio molestiae iusto!
     </p>
     <ol>
-      <li>
-        Bring to the table win-win survival strategies to ensure proactive
-        domination. At the end of the day.
-      </li>
-      <li>
-        apitalize on low hanging fruit to identify a ballpark value added
-        activity to beta test override the digital
-      </li>
+      <slot name="list_container" />
     </ol>
   </div>
 </div>
 
 <style>
-  .display-grid_img-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr auto;
-    gap: 2rem;
-  }
-
-  .display-flex_img-container {
+  /*******************style whole container*******************/
+  #img_text_containter {
     display: flex;
-    flex-flow: wrap row;
-    gap: 2rem;
-    & :is(.text_container, .img_container) {
+    flex-wrap: wrap;
+    gap: 4rem;
+    & :is(.text_container, #img_container) {
       flex: 1 1 300px;
+      height: fit-content;
+      width: fit-content;
     }
   }
 
-  .img_container {
+  .flex_row-reverse {
+    flex-flow: wrap row-reverse;
+  }
+  /*******************style for img container*******************/
+  #img_container {
     position: relative;
     padding-top: 4rem;
 
@@ -73,7 +67,14 @@ const {
       z-index: -1;
     }
   }
+  .grid_img-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr auto;
+    gap: 2rem;
+  }
 
+  /*******************style for text container*******************/
   .text_container {
     display: flex;
     flex-flow: wrap column;
@@ -85,43 +86,32 @@ const {
       display: flex;
       flex-flow: column wrap;
       gap: 1rem;
-      & li {
-        list-style-type: none;
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 1rem;
-      }
-      & li:before {
-        content: url(/images/tick.svg);
-        display: inline-block;
-      }
     }
   }
 
-  /*green abosulot position */
+  /*******************green abosulot position *******************/
   .right_top_green {
     position: absolute;
-    top: 5%;
+    top: 8%;
     right: -5%;
   }
   .right_bottom_green {
     position: absolute;
-    bottom: 5%;
+    bottom: -8%;
     right: -5%;
   }
 
   .left_top_green {
     position: absolute;
-    top: 5%;
+    top: 8%;
     left: -5%;
   }
   .left_bottom_green {
     position: absolute;
-    left: -5%;
-    bottom: 5%;
+    left: -8%;
+    bottom: -5%;
   }
-  /*dots abosulot position */
+  /******************dots abosulot position *******************/
 
   .right_top_dots {
     position: absolute;
