@@ -28,6 +28,62 @@ import Image_with_list from "../components/Image_with_list.astro";
     </li>
   </Image_with_list>
 
+  <div class="four_containers">
+    <div class="text_button">
+      <div class="text_container">
+        <p class="tag">growing with our clients</p>
+        <h2>our core values & principles</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates
+          nostrum excepturi magni aperiam reiciendis nam pariatur! Odio, non ab
+          magnam, beatae vitae pariatur molestias nam id obcaecati, excepturi
+          fuga. Voluptatum.
+        </p>
+      </div>
+      <Button btn_text="Get in touch" size="big_btn" />
+    </div>
+    <div class="four_div">
+      <div class="container">
+        <h6>creative ideas</h6>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe
+          obcaecati, odio temporibus quaerat quae quo error minima quisquam
+          culpa.
+        </p>
+        <a href="/case_study">Read more</a>
+      </div>
+
+      <div class="container">
+        <h6>best features</h6>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe
+          obcaecati, odio temporibus quaerat quae quo
+        </p>
+        <a href="/case_study">Read more</a>
+      </div>
+
+      <div class="container">
+        <h6>experience</h6>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. A et iusto
+          facere! Magnam eius officiis, porro rerum atque, vero veritatis sunt
+          reprehenderit illo impedit tempore blanditiis iusto debitis corrupti
+          perferendis.
+        </p>
+        <a href="/about">Read more</a>
+      </div>
+
+      <div class="container">
+        <h6>easy solutions</h6>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. A et iusto
+          facere! Magnam
+        </p>
+        <a href="/about">Read more</a>
+      </div>
+    </div>
+  </div>
+
   <Image_with_list
     position_green="left_bottom_green"
     position_dots="right_top_dots"
@@ -76,6 +132,56 @@ import Image_with_list from "../components/Image_with_list.astro";
 </Layout>
 
 <style>
+  .four_containers {
+    display: flex;
+    flex-direction: column;
+    & .text_button {
+      display: flex;
+      flex-wrap: row wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      & .text_container:not(.tag) {
+        color: var(--white-color);
+        display: flex;
+        flex-flow: wrap column;
+        align-self: flex-start;
+        gap: 1rem;
+      }
+    }
+  }
+
+  .four_div {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    gap: 1rem;
+
+    & .container {
+      padding: var(--small-padding);
+      flex: 1 1 100px;
+      background-color: var(--gray-color);
+      border-radius: var(--small-border-radius);
+    }
+  }
+  .full-bleed {
+    background-color: var(--black-color);
+  }
+
+  /**
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+* */
+
   .img_border {
     border-radius: var(--small-border-radius);
   }
