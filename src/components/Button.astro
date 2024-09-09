@@ -43,6 +43,23 @@ const { btn_type, btn_value, form_id, btn_text, size, variant } = Astro.props;
     }
   }
 
+  .black_btn {
+    --btn-color: color-mix(
+      in oklab,
+      var(--black-color),
+      var(--mix-with, 0% #fff)
+    );
+    background-color: var(--btn-color);
+    border-radius: var(--border-radius);
+    color: var(--white-color);
+    &:hover {
+      --mix-with: 30% #fff;
+    }
+    &:active {
+      --mix-with: 20% #fff;
+    }
+  }
+
   .yellow_btn {
     --btn-color: color-mix(
       in oklab,

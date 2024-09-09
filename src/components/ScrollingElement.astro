@@ -1,0 +1,119 @@
+---
+import Button from "./Button.astro";
+---
+
+<div class="text_btn">
+  <div class="text_container">
+    <h2>Financial Projections</h2>
+    <p>
+      Lorem ipsum dolhor sit amet consectetur adipisicing elit. Officia eos,
+      maiores autem qui animi sequi aut dolores et dicta voluptates laboriosam
+      doloribus voluptas nisi velit porro sunt odio molestiae iusto!
+    </p>
+  </div>
+  <div class="buttons">
+    <Button btn_text="->" size="small_btn" variant="black_btn" />
+    <Button btn_text="->" size="small_btn" variant="yellow_btn" />
+  </div>
+</div>
+<ul class="full-bleed scroll-element">
+  <li class="sheet">
+    <h6>the balance sheet</h6>
+    <p>
+      idunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+      nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat.
+    </p>
+  </li>
+  <li class="credit">
+    <h6>income statement</h6>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat.
+    </p>
+  </li>
+  <li class="bank">
+    <h6>Financial plan</h6>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat.
+    </p>
+  </li>
+  <li class="coin">
+    <h6>Financial ration</h6>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat.
+    </p>
+  </li>
+</ul>
+
+<style>
+  .text_btn {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    & .buttons {
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      gap: 1rem;
+    }
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  .scroll-element {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 1rem;
+    scroll-snap-type: inline mandatory;
+    overflow-x: scroll;
+    list-style-type: none;
+    padding-inline: max(1rem, 50% - var(--content-width) / 2);
+    :nth-of-type(2) {
+      background-color: var(--black-color);
+      color: var(--white-color);
+    }
+    & li {
+      scroll-snap-align: center;
+      scroll-snap-stop: always;
+
+      flex: 1 0 clamp(1rem, 50ch, 30rem);
+
+      background-color: var(--gray-color);
+      border-radius: var(--small-border-radius);
+      padding: var(--big-bottom-padding);
+      color: var(--black-color);
+    }
+  }
+
+  .sheet:before {
+    content: url(/images/sheet.svg);
+    display: inline-block;
+  }
+  .coin:before {
+    content: url(/images/coin.svg);
+    display: inline-block;
+  }
+  .bank:before {
+    content: url(/images/bank.svg);
+    display: inline-block;
+  }
+  .credit:before {
+    content: url(/images/credit.svg);
+    display: inline-block;
+  }
+
+  .text_container::before {
+    content: url(/images/financial.svg);
+  }
+</style>

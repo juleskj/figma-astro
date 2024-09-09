@@ -1,5 +1,5 @@
 :root {
-  --content-width: min(1200px, 100% - 1rem * 2);
+  --content-width: min(1000px, 100% - 1rem * 2);
   --full-width: minmax(1rem, 1fr);
   --feature-width: minmax(0, 2rem);
   --flow-space: 0.5rlh;
@@ -8,7 +8,7 @@
 
   --small-padding: 4px 16px;
   --big-padding: 15px 45px;
-  --big-botton-padding: 45px 15px;
+  --big-bottom-padding: 25px 15px;
 
   --black-color: oklch(20.9% 0 0);
   --white-color: oklch(100% 3.5594404384177905e-8 106.37411429114086);
