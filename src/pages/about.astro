@@ -1,6 +1,9 @@
 ---
 import Layout from "../components/Layout.astro";
 import Hero_img from "../components/Hero_img.astro";
+import Image_with_list from "../components/Image_with_list.astro";
+import Four_div from "../components/Four_div.astro";
+import Button from "../components/Button.astro";
 ---
 
 <Layout title="About">
@@ -9,4 +12,51 @@ import Hero_img from "../components/Hero_img.astro";
     tag_text="service"
     hero_text="creative services for boost your business growth"
   />
+
+  <Image_with_list
+    flex_row="flex_row-reverse"
+    position_green="right_top_green"
+    position_dots="right_top_dots"
+    list_header="turn your ideas into reality."
+    list_tag="our vision"
+  >
+    <img
+      class="img_border"
+      src="/images/our_vision.png"
+      alt="picture of people working together"
+      slot="img_slot"
+    />
+
+    <li slot="list_container" class="tick">
+      <p>
+        Bring to the table win-win survival strategies to ensure proactive
+        domination. At the end of the day.
+      </p>
+    </li>
+    <li slot="list_container" class="tick">
+      <p>
+        apitalize on low hanging fruit to identify a ballpark value added
+        activity to beta test override the digital
+      </p>
+    </li>
+  </Image_with_list>
+
+  <Four_div bg_color="gray_bg">
+    <Button
+      btn_text="get in touch"
+      size="big_btn"
+      variant="black_btn"
+      slot="btn_slot"
+    />
+  </Four_div>
 </Layout>
+
+<style>
+  li {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+  }
+</style>

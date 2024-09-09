@@ -134,3 +134,12 @@ main {
   text-transform: uppercase;
   width: fit-content;
 }
+
+.tick:before {
+  content: url(/images/tick.svg);
+  display: inline-block;
+}
+
+.img_border {
+  border-radius: var(--small-border-radius);
+}

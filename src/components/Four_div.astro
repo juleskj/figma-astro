@@ -15,7 +15,9 @@ const { bg_color } = Astro.props;
           fuga. Voluptatum.
         </p>
       </div>
-      <slot name="btn_slot" />
+      <div class="button_div">
+        <slot name="btn_slot" />
+      </div>
     </div>
 
     <div class="container">
@@ -68,6 +70,7 @@ const { bg_color } = Astro.props;
       text-transform: capitalize;
     }
   }
+
   .text_button {
     grid-column: 1 / span 4;
     display: grid;
@@ -78,27 +81,29 @@ const { bg_color } = Astro.props;
       display: grid;
       grid-column: 1 / span 2;
       gap: 1rem;
-      & *:not(.tag) {
-        color: var(--gray-color);
-      }
+    }
+
+    & .button_div {
+      grid-column: 4 / -1;
+      display: grid;
+      align-items: end;
+      justify-content: end;
     }
   }
 
   /*******container styles*******/
   .container {
     display: flex;
-    flex-flow: wrap row;
+    flex-flow: wrap column;
     gap: 1rem;
     background-color: gray;
     align-self: start;
     padding: var(--big-bottom-padding);
-    background-color: var(--gray-color);
     border-radius: var(--small-border-radius);
   }
 
   .container::before {
     content: url(/images/ideas.svg);
-    display: inline-block;
   }
 
   .container a::after {
@@ -124,13 +129,28 @@ const { bg_color } = Astro.props;
       --mix-with: 20% #000;
     }
   }
+
+  /*******Variant for baground *******/
   .black_bg {
     padding: 100px;
     background-color: var(--black-color);
+
+    & .container {
+      background-color: var(--gray-color);
+      color: var(--black-color);
+    }
+
+    & .text_container :not(.tag) {
+      color: var(--gray-color);
+    }
   }
 
   .gray_bg {
     padding: 100px;
     background-color: var(--gray-color);
+    color: var(--black-color);
+    & .container {
+      background-color: var(--white-color);
+    }
   }
 </style>
