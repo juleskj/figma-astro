@@ -1,25 +1,49 @@
 ---
-const {
-  btn_type,
-  btn_value,
-  form_id,
-  btn_text,
-  btn_color,
-  btn_padding,
-  size,
-  variant,
-} = Astro.props;
+const { btn_type, btn_value, form_id, btn_text, size, variant } = Astro.props;
 ---
 
-<button class={size} type={btn_type} form={form_id} value={btn_value}
-  >{btn_text}</button
+<button
+  class={size + " " + variant}
+  type={btn_type}
+  form={form_id}
+  value={btn_value}>{btn_text}</button
 >
 
 <style>
   button {
+    height: fit-content;
+    width: fit-content;
     display: flex;
     white-space: nowrap;
     justify-content: center;
+    text-transform: capitalize;
+  }
+
+  .big_btn {
+    padding: var(--big-padding);
+  }
+
+  .small_btn {
+    padding: var(--small-padding);
+  }
+
+  .white_btn {
+    --btn-color: color-mix(
+      in oklab,
+      var(--white-color),
+      var(--mix-with, 0% #fff)
+    );
+    background-color: var(--btn-color);
+    border-radius: var(--border-radius);
+    &:hover {
+      --mix-with: 30% #000;
+    }
+    &:active {
+      --mix-with: 20% #000;
+    }
+  }
+
+  .yellow_btn {
     --btn-color: color-mix(
       in oklab,
       var(--yellow-color),
@@ -33,14 +57,6 @@ const {
     &:active {
       --mix-with: 20% #000;
     }
-  }
-
-  .big_btn {
-    padding: var(--big-padding);
-  }
-
-  .small_btn {
-    padding: var(--small-padding);
   }
 
   @media (width < 500px) {
