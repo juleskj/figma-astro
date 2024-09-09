@@ -2,6 +2,7 @@
 import Layout from "../components/Layout.astro";
 import Button from "../components/Button.astro";
 import Image_with_list from "../components/Image_with_list.astro";
+import Four_div from "../components/Four_div.astro";
 ---
 
 <Layout title="Forside">
@@ -27,63 +28,14 @@ import Image_with_list from "../components/Image_with_list.astro";
       to beta test override the digital
     </li>
   </Image_with_list>
-
-  <div class="full-bleed">
-    <div class="div_containers">
-      <div class="text_button">
-        <div class="text_container">
-          <p class="tag">growing with our clients</p>
-          <h2>our core values & principles</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates
-            nostrum excepturi magni aperiam reiciendis nam pariatur! Odio, non
-            ab magnam, beatae vitae pariatur molestias nam id obcaecati,
-            excepturi fuga. Voluptatum.
-          </p>
-        </div>
-        <Button btn_text="get in touch" size="big_btn" variant="white_btn" />
-      </div>
-
-      <div class="container">
-        <h6>creative ideas</h6>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe
-          obcaecati, odio temporibus quaerat quae quo error minima quisquam
-          culpa.
-        </p>
-        <a href="/case_study">Read more</a>
-      </div>
-
-      <div class="container">
-        <h6>best features</h6>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe
-          obcaecati, odio temporibus quaerat quae quo
-        </p>
-        <a href="/case_study">Read more</a>
-      </div>
-
-      <div class="container">
-        <h6>experience</h6>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. A et iusto
-          facere! Magnam eius officiis, porro rerum atque, vero veritatis sunt
-          reprehenderit illo impedit tempore blanditiis iusto debitis corrupti
-          perferendis.
-        </p>
-        <a href="/about">Read more</a>
-      </div>
-
-      <div class="container">
-        <h6>easy solutions</h6>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. A et iusto
-          facere! Magnam
-        </p>
-        <a href="/about">Read more</a>
-      </div>
-    </div>
-  </div>
+  <Four_div bg_color="black_bg">
+    <Button
+      btn_text="get in touch"
+      size="big_btn"
+      variant="white_btn"
+      slot="btn_slot"
+    />
+  </Four_div>
   <Image_with_list
     position_green="left_bottom_green"
     position_dots="right_top_dots"
@@ -132,75 +84,6 @@ import Image_with_list from "../components/Image_with_list.astro";
 </Layout>
 
 <style>
-  .div_containers {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-
-    & :is(h2, h6) {
-      text-transform: capitalize;
-    }
-  }
-  .text_button {
-    grid-column: 1 / span 4;
-    display: grid;
-    grid-template-columns: subgrid;
-
-    gap: 1rem;
-    & .text_container {
-      display: grid;
-      grid-column: 1 / span 2;
-      gap: 1rem;
-      & *:not(.tag) {
-        color: var(--gray-color);
-      }
-    }
-  }
-
-  /*******container styles*******/
-  .container {
-    display: flex;
-    flex-flow: wrap row;
-    gap: 1rem;
-    background-color: gray;
-    align-self: start;
-    padding: var(--big-botton-padding);
-    background-color: var(--gray-color);
-    border-radius: var(--small-border-radius);
-  }
-
-  .container::before {
-    content: url(/images/ideas.svg);
-    display: inline-block;
-  }
-
-  .container a::after {
-    content: url(/images/arrow.svg);
-    display: inline-flex;
-  }
-  .container a {
-    text-decoration: none;
-    text-transform: capitalize;
-    display: flex;
-    gap: 1rem;
-    --a-color: color-mix(
-      in oklab,
-      var(--black-color),
-      var(--mix-with, 0% #fff)
-    );
-    color: var(--a-color);
-    border-radius: var(--border-radius);
-    &:hover {
-      --mix-with: 70% #fff;
-    }
-    &:active {
-      --mix-with: 20% #000;
-    }
-  }
-  .full-bleed {
-    background-color: var(--black-color);
-    padding: 100px 0;
-  }
   /**
 *
 *
