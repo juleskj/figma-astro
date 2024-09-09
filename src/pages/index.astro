@@ -36,6 +36,65 @@ import Four_div from "../components/Four_div.astro";
       slot="btn_slot"
     />
   </Four_div>
+
+  <section>
+    <text_div>
+      <h2>Financial Projections</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim aliquip ex
+        ea commodo consequat.
+      </p>
+    </text_div>
+
+    <ul class="full-bleed scroll-element">
+      <li>
+        <h2>Financial Projections</h2>
+        <p>
+          idunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+          nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat.
+        </p>
+      </li>
+      <li>
+        <h2>Financial Projections</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </p>
+      </li>
+      <li>
+        <h2>Financial Projections</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </p>
+      </li>
+      <li>
+        <h2>Financial Projections</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </p>
+      </li>
+      <li>
+        <h2>Financial Projections</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </p>
+      </li>
+    </ul>
+  </section>
+
   <Image_with_list
     position_green="left_bottom_green"
     position_dots="right_top_dots"
@@ -84,6 +143,26 @@ import Four_div from "../components/Four_div.astro";
 </Layout>
 
 <style>
+  .scroll-element {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    scroll-snap-type: inline mandatory;
+    overflow-x: scroll;
+    list-style-type: none;
+    padding-inline: max(1rem, 50% - var(--content-width) / 2);
+
+    & li {
+      scroll-snap-align: center;
+      scroll-snap-stop: always;
+
+      flex: 1 0 clamp(5rem, 65ch, 20rem);
+      background-color: gray;
+      border-radius: 20px;
+      padding: 20px;
+    }
+  }
+
   /**
 *
 *
