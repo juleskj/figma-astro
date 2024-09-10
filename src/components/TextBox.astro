@@ -1,0 +1,54 @@
+---
+const { box_header, box_text, box_tag, variant } = Astro.props;
+---
+
+<div class="text_box">
+  <p class={"tag" + " " + { variant }}>{box_tag}</p>
+  <h2>{box_header}</h2>
+  <p class="text">
+    {box_text}
+  </p>
+</div>
+
+<style>
+  .text_box {
+    display: flex;
+    flex-flow: wrap column;
+    flex: 1 1;
+    gap: 1rem;
+    & h2 {
+      text-transform: capitalize;
+    }
+    & .text {
+      word-wrap: break-word;
+      max-width: 65ch;
+    }
+  }
+
+  .tag {
+    padding-block: 0.25em;
+    padding-inline: 1em;
+    display: inline block;
+
+    font-size: 0.8em;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border-radius: var(--border-radius);
+    text-transform: uppercase;
+    width: fit-content;
+  }
+
+  .yellow_tag {
+    background: var(--yellow-color);
+  }
+
+  .black_tag {
+    background: var(--black-color);
+    color: var(--white-color);
+  }
+
+  .gray_tag {
+    background: var(--gray-color);
+    color: var(--black-color);
+  }
+</style>

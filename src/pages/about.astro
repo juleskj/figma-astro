@@ -4,6 +4,7 @@ import Hero_img from "../components/Hero_img.astro";
 import Image_w_List from "../components/Image_w_List.astro";
 import FourDiv from "../components/FourDiv.astro";
 import Button from "../components/Button.astro";
+import TextBox from "../components/TextBox.astro";
 ---
 
 <Layout title="About">
@@ -49,6 +50,12 @@ import Button from "../components/Button.astro";
       slot="btn_slot"
     />
   </FourDiv>
+  <TextBox
+    box_header="hello"
+    box_text="Lorem ipsum dolhor sit amet consectetur adipisicing elit. Officia eos, maiores autem qui animi sequi aut dolores et dicta voluptates laboriosam doloribus voluptas nisi velit porro sunt odio molestiae iusto!"
+    box_tag="hello im a tag"
+    variant="yellow_tag"
+  />
 </Layout>
 
 <style>
