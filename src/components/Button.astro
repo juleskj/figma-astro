@@ -1,8 +1,17 @@
 ---
-const { btn_type, btn_value, form_id, btn_text, size, variant } = Astro.props;
+const {
+  btn_type,
+  btn_value,
+  form_id,
+  btn_text,
+  size,
+  variant,
+  popover_target,
+} = Astro.props;
 ---
 
 <button
+  popovertarget={popover_target}
   class={size + " " + variant}
   type={btn_type}
   form={form_id}

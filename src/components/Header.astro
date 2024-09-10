@@ -3,6 +3,22 @@ import Button from "./Button.astro";
 ---
 
 <header>
+  <div popover id="popup">
+    <form action="/" id="login">
+      <h4>Dashboard login</h4>
+      <input type="email" placeholder="Enter Email" required />
+      <input type="password" placeholder="Enter Password" required />
+      <Button
+        size="small_btn"
+        variant="yellow_btn"
+        btn_type="submit"
+        form_id="login"
+        value="submit"
+        btn_text="go to dashboard"
+      />
+    </form>
+  </div>
+
   <nav>
     <a href="/"><h2>AskExperts</h2></a>
     <ul>
@@ -12,7 +28,12 @@ import Button from "./Button.astro";
       <li><a href="/case_study">Case study</a></li>
     </ul>
 
-    <Button btn_text="Login" size="small_btn" variant="yellow_btn" />
+    <Button
+      popover_target="popup"
+      btn_text="Login"
+      size="small_btn"
+      variant="yellow_btn"
+    />
   </nav>
 </header>
 
@@ -44,6 +65,34 @@ import Button from "./Button.astro";
       list-style-type: none;
       & a {
       }
+    }
+  }
+
+  /************** pop over style **************/
+  #popup::backdrop {
+    background: #0004;
+    backdrop-filter: blur(4px);
+  }
+  :popover-open {
+    margin: auto auto;
+    background-color: var(--black-color);
+    border-radius: var(--small-border-radius);
+    padding: var(--big-bottom-padding);
+    & h4 {
+      text-align: center;
+      color: var(--white-color);
+    }
+  }
+
+  form {
+    display: flex;
+    flex-flow: wrap column;
+    align-items: center;
+    gap: 1rem;
+    & input {
+      background-color: var(--gray-color);
+      border-radius: var(--border-radius);
+      padding: var(--small-padding);
     }
   }
 </style>
