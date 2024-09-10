@@ -1,31 +1,15 @@
 ---
 import Layout from "../components/Layout.astro";
 import Button from "../components/Button.astro";
-import Image_with_list from "../components/Image_with_list.astro";
-import Four_div from "../components/Four_div.astro";
+import Image_w_List from "../components/Image_w_List.astro";
+import FourDiv from "../components/FourDiv.astro";
 import ScrollingElement from "../components/ScrollingElement.astro";
-import Pie_chart from "../components/Pie_chart.astro";
+import SinglePieChart from "../components/SinglePieChart.astro";
 import Pie_w_text from "../components/Pie_w_text.astro";
 ---
 
 <Layout title="Forside">
-  <div popover id="popup">
-    <form action="/" id="login">
-      <h4>Dashboard login</h4>
-      <input type="email" placeholder="Enter Email" />
-      <input type="password" placeholder="Enter Password" />
-      <Button
-        size="small_btn"
-        variant="yellow_btn"
-        btn_type="submit"
-        form_id="login"
-        value="submit"
-        btn_text="go to dashboard"
-      />
-    </form>
-  </div>
-
-  <Image_with_list
+  <Image_w_List
     position_green="left_top_green"
     position_dots="left_top_dots"
     list_header="what to expect"
@@ -46,7 +30,7 @@ import Pie_w_text from "../components/Pie_w_text.astro";
       apitalize on low hanging fruit to identify a ballpark value added activity
       to beta test override the digital
     </li>
-  </Image_with_list>
+  </Image_w_List>
 
   <ScrollingElement />
 
@@ -55,21 +39,21 @@ import Pie_w_text from "../components/Pie_w_text.astro";
     pie_header_text="More than 25 years of experience"
     pie_under_header="3000+ our clients are insured around the World"
   >
-    <Pie_chart percent="85%" pie_header="consisenty" slot="pie_slot" />
-    <Pie_chart percent="95%" pie_header="improvement" slot="pie_slot" />
-    <Pie_chart percent="90%" pie_header="branching" slot="pie_slot" />
+    <SinglePieChart percent="85%" pie_header="consisenty" slot="pie_slot" />
+    <SinglePieChart percent="95%" pie_header="improvement" slot="pie_slot" />
+    <SinglePieChart percent="90%" pie_header="branching" slot="pie_slot" />
   </Pie_w_text>
 
-  <Four_div bg_color="black_bg">
+  <FourDiv bg_color="black_bg">
     <Button
       btn_text="get in touch"
       size="big_btn"
       variant="white_btn"
       slot="btn_slot"
     />
-  </Four_div>
+  </FourDiv>
 
-  <Image_with_list
+  <Image_w_List
     position_green="left_bottom_green"
     position_dots="right_top_dots"
     list_header="contact us. it's easy."
@@ -113,36 +97,10 @@ import Pie_w_text from "../components/Pie_w_text.astro";
         <h6>195 Devonshire St Boston, MA 02110</h6>
       </div>
     </li>
-  </Image_with_list>
+  </Image_w_List>
 </Layout>
 
 <style>
-  #popup::backdrop {
-    background: #0004;
-    backdrop-filter: blur(4px);
-  }
-  :popover-open {
-    margin: auto auto;
-    background-color: var(--black-color);
-    border-radius: var(--small-border-radius);
-    padding: var(--big-bottom-padding);
-    & h4 {
-      text-align: center;
-      color: var(--white-color);
-    }
-  }
-
-  form {
-    display: flex;
-    flex-flow: wrap column;
-    align-items: center;
-    gap: 1rem;
-    & input {
-      background-color: var(--gray-color);
-      border-radius: var(--border-radius);
-      padding: var(--small-padding);
-    }
-  }
   /**
 *
 *
