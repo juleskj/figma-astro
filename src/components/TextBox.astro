@@ -1,9 +1,9 @@
 ---
-const { box_header, box_text, box_tag, variant } = Astro.props;
+const { box_header, box_text, tag_text, variant } = Astro.props;
 ---
 
 <div class="text_box">
-  <p class={"tag" + " " + { variant }}>{box_tag}</p>
+  <p class={"tag" + " " + { variant }}>{tag_text}</p>
   <h2>{box_header}</h2>
   <p class="text">
     {box_text}
