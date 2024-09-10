@@ -7,6 +7,48 @@ import ScrollingElement from "../components/ScrollingElement.astro";
 ---
 
 <Layout title="Forside">
+  <div class="full-bleed">
+    <div class="pie_textbox">
+      <div class="text_box">
+        <p class="tag" style="background-color:var(--white-color)">
+          experience
+        </p>
+        <h2>More than 25 years of experience</h2>
+        <p>3000+ our clients are insured around the World</p>
+      </div>
+
+      <div class="pie_container">
+        <div class="container">
+          <div class="pie_chart">
+            <h4>85%</h4>
+            <div class="parent" style="--percent: 85%">
+              <div class="child"></div>
+            </div>
+          </div>
+          <h4>Consistency</h4>
+        </div>
+        <div class="container">
+          <div class="pie_chart">
+            <h4>85%</h4>
+            <div class="parent" style="--percent: 85%">
+              <div class="child"></div>
+            </div>
+          </div>
+          <h4>Improvement</h4>
+        </div>
+        <div class="container">
+          <div class="pie_chart">
+            <h4>85%</h4>
+            <div class="parent" style="--percent: 85%">
+              <div class="child"></div>
+            </div>
+          </div>
+          <h4>Branching</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <Image_with_list
     position_green="left_top_green"
     position_dots="left_top_dots"
@@ -86,6 +128,109 @@ import ScrollingElement from "../components/ScrollingElement.astro";
 </Layout>
 
 <style>
+  .pie_textbox {
+    display: flex;
+    flex-flow: wrap row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .text_box {
+    flex: 1 1;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .pie_container {
+    display: flex;
+    flex-flow: wrap row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .pie_chart {
+    display: grid;
+    grid-auto-rows: auto;
+
+    & .parent {
+      grid-area: 1 /1 / span 2 / span 2;
+    }
+
+    & h4 {
+      display: grid;
+      place-content: center;
+      grid-area: 1 /1 / span 2 / span 2;
+      z-index: 1;
+    }
+  }
+
+  @property --percent {
+    syntax: "<percentage>";
+    inherits: true;
+    initial-value: 0%;
+  }
+
+  .parent {
+    --pie-color: color-mix(
+      in oklab,
+      var(--yellow-color),
+      var(--mix-with, 0% #fff)
+    );
+
+    --dark-pie-color: color-mix(
+      in oklab,
+      var(--yellow-color),
+      var(--mix-with, 10% #000)
+    );
+
+    --offset-pos: 5px;
+    animation: --pie 3s linear infinite;
+    border: var(--offset-pos) solid transparent;
+    background:
+      linear-gradient(var(--pie-color), var(--pie-color)) padding-box,
+      conic-gradient(var(--white-color) var(--percent), var(--dark-pie-color) 0)
+        border-box;
+    position: relative;
+
+    .child {
+      aspect-ratio: 1;
+      border-radius: 50%;
+      width: 15px;
+      background: var(--black-color);
+      outline: var(--white-color) 4px solid;
+      position: absolute;
+      offset-path: border-box;
+      offset-distance: var(--percent);
+      offset-anchor: 50% calc(50% - var(--offset-pos) / 2);
+    }
+  }
+
+  @keyframes --pie {
+    from {
+      --percent: 0%;
+    }
+    to {
+      --percent: 85%;
+    }
+  }
+
+  .parent {
+    aspect-ratio: 1;
+    width: 150px;
+    border-radius: 1e5px;
+    margin-inline: auto;
+  }
+
+  .full-bleed {
+    padding: 80px;
+    background-color: var(--yellow-color);
+  }
   /**
 *
 *
