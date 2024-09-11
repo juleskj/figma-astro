@@ -1,8 +1,79 @@
 ---
 import Layout from "../components/Layout.astro";
 import Hero_img from "../components/Hero_img.astro";
+import Button from "../components/Button.astro";
 ---
 
 <Layout title="Case Study">
   <Hero_img tag_text="case studies single" hero_text="taxes & efficiency" />
+
+  <div class="img_container">
+    <div class="img_box">
+      <img src="/public/images/forside_hero.png" alt="" />
+    </div>
+    <div class="case_info">
+      <div class="info">
+        <div class="case_name">
+          <h6>case name</h6>
+          <p>taxes & effeciency</p>
+        </div>
+        <div class="case_category">
+          <h6>case category</h6>
+          <p>business</p>
+        </div>
+        <div class="case_date">
+          <h6>date</h6>
+          <p>27th september 2022</p>
+        </div>
+      </div>
+      <div class="button_div">
+        <Button btn_text="live preveiw" size="big_btn" variant="yellow_btn" />
+      </div>
+    </div>
+  </div>
 </Layout>
+
+<style>
+  .img_box {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: 2;
+    grid-column: 1 / span 2;
+  }
+
+  img {
+    grid-row: 1 /2;
+  }
+  .img_container {
+    display: grid;
+    grid-template-rows: auto auto;
+  }
+  .case_info {
+    height: fit-content;
+    background-color: var(--black-color);
+
+    grid-column: 1 / span 2;
+    grid-row: 2;
+
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    gap: 2rem;
+    padding: var(--even-padding-m);
+    margin: 50px 50px;
+    border-radius: var(--border-radius);
+
+    & :not(.button_div) {
+      color: white;
+    }
+  }
+
+  .info {
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: space-evenly;
+
+    gap: 2rem;
+  }
+</style>

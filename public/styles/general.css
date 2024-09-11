@@ -8,7 +8,11 @@
 
   --small-padding: 4px 16px;
   --big-padding: 15px 45px;
-  --big-bottom-padding: 25px 15px;
+  --big-bottom-padding: 35px 25px;
+
+  --even-padding-s: 35px;
+  --even-padding-m: 45px;
+  --even-padding-l: 55px;
 
   --black-color: oklch(20.9% 0 0);
   --white-color: oklch(100% 3.5594404384177905e-8 106.37411429114086);
