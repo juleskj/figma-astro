@@ -5,7 +5,7 @@ const { bg_color } = Astro.props;
 <div class={bg_color + " " + "full-bleed"}>
   <div class="div_containers">
     <div class="text_button">
-      <div class="text_container">
+      <div class="text_box">
         <p class="tag">growing with our clients</p>
         <h2>our core values & principles</h2>
         <p>
@@ -70,14 +70,26 @@ const { bg_color } = Astro.props;
       text-transform: capitalize;
     }
   }
-
+  @media (width < 800px) {
+    .div_containers {
+      display: flex;
+      flex-flow: wrap column;
+      align-items: stretch;
+      & .text_button {
+        display: block;
+        & .button_div {
+          padding: var(--big-bottom-padding);
+        }
+      }
+    }
+  }
   .text_button {
     grid-column: 1 / span 4;
     display: grid;
     grid-template-columns: subgrid;
 
     gap: 1rem;
-    & .text_container {
+    & .text_box {
       display: grid;
       grid-column: 1 / span 2;
       gap: 1rem;
@@ -130,7 +142,7 @@ const { bg_color } = Astro.props;
     }
   }
 
-  /*******Variant for baground *******/
+  /*******Variant for bagground *******/
   .black_bg {
     padding: 100px;
     background-color: var(--black-color);
@@ -140,7 +152,7 @@ const { bg_color } = Astro.props;
       color: var(--black-color);
     }
 
-    & .text_container :not(.tag) {
+    & .text_box :not(.tag) {
       color: var(--gray-color);
     }
   }

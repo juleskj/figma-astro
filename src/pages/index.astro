@@ -6,6 +6,10 @@ import FourDiv from "../components/FourDiv.astro";
 import ScrollingElement from "../components/ScrollingElement.astro";
 import SinglePieChart from "../components/SinglePieChart.astro";
 import Pie_w_text from "../components/Pie_w_text.astro";
+
+const teamData = await fetch(
+  "https://raw.githubusercontent.com/juleskj/frontend-design/main/resources/json/employees.json"
+).then((res) => res.json());
 ---
 
 <Layout title="Forside">

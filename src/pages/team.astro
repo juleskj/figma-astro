@@ -1,146 +1,67 @@
 ---
 import Layout from "../components/Layout.astro";
 import HeroImg from "../components/Hero_img.astro";
+import TeamCard from "../components/TeamCard.astro";
+import Button from "../components/Button.astro";
+
+const teamData = await fetch(
+  "https://raw.githubusercontent.com/juleskj/frontend-design/main/resources/json/employees.json"
+).then((res) => res.json());
 ---
 
 <Layout title="Team">
   <HeroImg tag_text="team" hero_text="the consultors" />
-
+  <div class="text_button">
+    <div class="text_box">
+      <h2>meet our great team</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates
+        nostrum excepturi magni aperiam reiciendis nam pariatur! Odio, non ab
+        magnam, beatae vitae pariatur molestias nam id obcaecati, excepturi
+        fuga. Voluptatum.
+      </p>
+    </div>
+    <div class="button_div">
+      <Button size="big_btn" variant="black_btn" btn_text="join our team" />
+    </div>
+  </div>
   <div id="card_container">
-    <div class="team_card">
-      <div class="img_w_tag">
-        <img src="/public/images/forside_hero.png" alt="" />
-        <p class="tag">CEO of company</p>
-      </div>
-      <div class="info_box">
-        <h6>long name middlename last name</h6>
-        <p>
-          Leverage agile frameworks to provide a robust synopsis for high level
-          overviews.
-        </p>
-        <div class="some">
-          <a href="/"><img src="/public/images/twitter.svg" alt="" /></a>
-          <a href="/"><img src="/public/images/facebook.svg" alt="" /></a>
-          <a href="/"><img src="/public/images/insta.svg" alt="" /></a>
-        </div>
-      </div>
-    </div>
-    <div class="team_card">
-      <div class="img_w_tag">
-        <img src="/public/images/forside_hero.png" alt="" />
-        <p class="tag">CEO of company</p>
-      </div>
-      <div class="info_box">
-        <h6>long name middlename last name</h6>
-        <p>
-          Leverage agile frameworks to provide a robust synopsis for high level
-          overviews.
-        </p>
-        <div class="some">
-          <a href="/"><img src="/public/images/twitter.svg" alt="" /></a>
-          <a href="/"><img src="/public/images/facebook.svg" alt="" /></a>
-          <a href="/"><img src="/public/images/insta.svg" alt="" /></a>
-        </div>
-      </div>
-    </div>
-    <div class="team_card">
-      <div class="img_w_tag">
-        <img src="/public/images/forside_hero.png" alt="" />
-        <p class="tag">CEO of company</p>
-      </div>
-      <div class="info_box">
-        <h6>long name middlename last name</h6>
-        <p>
-          Leverage agile frameworks to provide a robust synopsis for high level
-          overviews.
-        </p>
-        <div class="some">
-          <a href="/"><img src="/public/images/twitter.svg" alt="" /></a>
-          <a href="/"><img src="/public/images/facebook.svg" alt="" /></a>
-          <a href="/"><img src="/public/images/insta.svg" alt="" /></a>
-        </div>
-      </div>
-    </div>
-    <div class="team_card">
-      <div class="img_w_tag">
-        <img src="/public/images/forside_hero.png" alt="" />
-        <p class="tag">CEO of company</p>
-      </div>
-      <div class="info_box">
-        <h6>long name middlename last name</h6>
-        <p>
-          Leverage agile frameworks to provide a robust synopsis for high level
-          overviews.
-        </p>
-        <div class="some">
-          <a href="/"><img src="/public/images/twitter.svg" alt="" /></a>
-          <a href="/"><img src="/public/images/facebook.svg" alt="" /></a>
-          <a href="/"><img src="/public/images/insta.svg" alt="" /></a>
-        </div>
-      </div>
-    </div>
-    <div class="team_card">
-      <div class="img_w_tag">
-        <img src="/public/images/forside_hero.png" alt="" />
-        <p class="tag">CEO of company</p>
-      </div>
-      <div class="info_box">
-        <h6>long name middlename last name</h6>
-        <p>
-          Leverage agile frameworks to provide a robust synopsis for high level
-          overviews.
-        </p>
-        <div class="some">
-          <a href="/"><img src="/public/images/twitter.svg" alt="" /></a>
-          <a href="/"><img src="/public/images/facebook.svg" alt="" /></a>
-          <a href="/"><img src="/public/images/insta.svg" alt="" /></a>
-        </div>
-      </div>
-    </div>
-    <div class="team_card">
-      <div class="img_w_tag">
-        <img src="/public/images/forside_hero.png" alt="" />
-        <p class="tag">CEO of company</p>
-      </div>
-      <div class="info_box">
-        <h6>long name middlename last name</h6>
-        <p>
-          Leverage agile frameworks to provide a robust synopsis for high level
-          overviews.
-        </p>
-        <div class="some">
-          <a href="/"><img src="/public/images/twitter.svg" alt="" /></a>
-          <a href="/"><img src="/public/images/facebook.svg" alt="" /></a>
-          <a href="/"><img src="/public/images/insta.svg" alt="" /></a>
-        </div>
-      </div>
-    </div>
-    <div class="team_card">
-      <div class="img_w_tag">
-        <img src="/public/images/forside_hero.png" alt="" />
-        <p class="tag">CEO of company</p>
-      </div>
-      <div class="info_box">
-        <h6>long name middlename last name</h6>
-        <p>
-          Leverage agile frameworks to provide a robust synopsis for high level
-          overviews.
-        </p>
-        <div class="some">
-          <a href="/"><img src="/public/images/twitter.svg" alt="" /></a>
-          <a href="/"><img src="/public/images/facebook.svg" alt="" /></a>
-          <a href="/"><img src="/public/images/insta.svg" alt="" /></a>
-        </div>
-      </div>
-    </div>
+    {
+      teamData.map((emploey) => {
+        return <TeamCard teamData={emploey} />;
+      })
+    }
   </div>
 </Layout>
 
 <style>
+  .text_button {
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: space-between;
+
+    gap: 1rem;
+    & .text_box {
+      flex: 1 1 auto;
+      word-break: pretty;
+      max-width: 65ch;
+      & :not(p) {
+        text-transform: capitalize;
+      }
+    }
+
+    & .button_div {
+      align-self: flex-end;
+    }
+  }
   #card_container {
     display: flex;
     flex-flow: row wrap;
     gap: 2rem;
+
+    &:nth-last-child(odd):first-child {
+      /*  */
+    }
   }
 
   .team_card {

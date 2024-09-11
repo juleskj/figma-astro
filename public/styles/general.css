@@ -55,22 +55,3 @@ ol {
   font-weight: 400;
   --flow-space: 0.5em;
 }
-
-h1 {
-  --flow-space: 1.5em;
-}
-h2 {
-  --flow-space: 1.5em;
-}
-h3 {
-  --flow-space: 1.5em;
-}
-h4 {
-  --flow-space: 1em;
-}
-h5 {
-  --flow-space: 1em;
-}
-h6 {
-  --flow-space: 1em;
-}
