@@ -1,145 +1,70 @@
-:root {
-  --content-width: min(1000px, 100% - 1rem * 2);
-  --full-width: minmax(1rem, 1fr);
-  --feature-width: minmax(0, 2rem);
-  --flow-space: 0.5rlh;
-  --border-radius: 42px;
-  --small-border-radius: 20px;
+@layer reset, general, overwrite;
 
-  --small-padding: 4px 16px;
-  --big-padding: 15px 45px;
-  --big-bottom-padding: 25px 15px;
+@import url("./reset.css") layer(reset);
+@import url("./general.css") layer(general);
+@import url("./overwrite.css") layer(overwrite);
 
-  --black-color: oklch(20.9% 0 0);
-  --white-color: oklch(100% 3.5594404384177905e-8 106.37411429114086);
-  --gray-color: oklch(97.02% 0 0);
-  --yellow-color: oklch(84.54% 0.159 85.3);
-  --green-color: oklch(67.36% 0.163 143.5);
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Cabin", sans-serif;
-  font-style: normal;
-  font-weight: 600;
-}
-h1 {
-  font-size: 50px;
-}
-h2 {
-  font-size: 45px;
-}
-h3 {
-  font-size: 40px;
-}
-h4 {
-  font-size: 35px;
-}
-h5 {
-  font-size: 30px;
-}
-h6 {
-  font-size: 25px;
-}
-
-p,
-ul,
-ol {
-  font-family: "Lato", sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-}
-
-article {
-  /* her giver vi alle elementer, untagen det første
-      , margin-block-start på 0.5rlh som står for root
-      line height og siger hvis den ikke findes så sæt den på 1em*/
-  & > * + * {
-    margin-block-start: var(--flow-space, 1em);
+@layer global {
+  /* her er mit layout med grid og subgrid, hvor jeg har lavet full-bleed og featured */
+  body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns:
+      [full-start] var(--full-width) [feature-start] var(--feature-width)
+      [content] var(--content-width) var(--feature-width) [feature-end] var(
+        --full-width
+      )
+      [full-end];
   }
 
-  /* 2. For `h2`, sæt `—flow-space`-værdien til `2rlh`. */
-  & h2 {
-    --flow-space: 2rlh;
-  }
-
-  /* 3. For `h3`, sæt `—flow-space`-værdien til `1rlh`. */
-  & h3 {
-    --flow-space: 1rlh;
-
-    /* 4. For alle elementer, der kommer lige 
-      efter **`h3`**, reducér `—flow-space` til `.25rlh`. */
-
-    & > {
-      --flow-space: 0.25rlh;
+  /* her gør jeg at min header, footer og main har samme grid som body, da jeg gerne have at de kan være 
+full bleed men deres content, som tekst skal være inde i content */
+  header,
+  footer,
+  main {
+    grid-column: full;
+    display: grid;
+    grid-template-columns: subgrid;
+    gap: 1rem;
+    > * {
+      grid-column: content;
     }
   }
-}
 
-/* her er mit layout med grid og subgrid, hvor jeg har lavet full-bleed og featured */
-body {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  grid-template-columns:
-    [full-start] var(--full-width) [feature-start] var(--feature-width)
-    [content] var(--content-width) var(--feature-width) [feature-end] var(
-      --full-width
-    )
-    [full-end];
-}
+  .full-bleed {
+    grid-column: full;
+    display: grid;
+    grid-template-columns: subgrid;
 
-/* her gør jeg at min header, footer og main har samme grid som body, da jeg gerne have at de kan være 
-full bleed men deres content, som tekst skal være inde i content */
-header,
-footer,
-main {
-  grid-column: full;
-  display: grid;
-  grid-template-columns: subgrid;
-  gap: 1rem;
-  > * {
-    grid-column: content;
+    > * {
+      grid-column: content;
+    }
   }
-}
 
-.full-bleed {
-  grid-column: full;
-  display: grid;
-  grid-template-columns: subgrid;
-
-  > * {
-    grid-column: content;
+  .feature {
+    grid-column: feature;
   }
-}
 
-.feature {
-  grid-column: feature;
-}
+  .tag {
+    padding-block: 0.25em;
+    padding-inline: 1em;
+    display: inline block;
+    background: var(--yellow-color);
 
-.tag {
-  padding-block: 0.25em;
-  padding-inline: 1em;
-  display: inline block;
-  background: var(--yellow-color);
+    font-size: 0.8em;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border-radius: var(--border-radius);
+    text-transform: uppercase;
+    width: fit-content;
+  }
 
-  font-size: 0.8em;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  border-radius: var(--border-radius);
-  text-transform: uppercase;
-  width: fit-content;
-}
+  .tick:before {
+    content: url(/images/tick.svg);
+    display: inline-block;
+  }
 
-.tick:before {
-  content: url(/images/tick.svg);
-  display: inline-block;
-}
-
-.img_border {
-  border-radius: var(--small-border-radius);
+  .img_border {
+    border-radius: var(--small-border-radius);
+  }
 }

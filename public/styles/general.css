@@ -1,0 +1,76 @@
+:root {
+  --content-width: min(1000px, 100% - 1rem * 2);
+  --full-width: minmax(1rem, 1fr);
+  --feature-width: minmax(0, 2rem);
+  --flow-space: 0.5rlh;
+  --border-radius: 42px;
+  --small-border-radius: 20px;
+
+  --small-padding: 4px 16px;
+  --big-padding: 15px 45px;
+  --big-bottom-padding: 25px 15px;
+
+  --black-color: oklch(20.9% 0 0);
+  --white-color: oklch(100% 3.5594404384177905e-8 106.37411429114086);
+  --gray-color: oklch(97.02% 0 0);
+  --yellow-color: oklch(84.54% 0.159 85.3);
+  --green-color: oklch(67.36% 0.163 143.5);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Cabin", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+}
+h1 {
+  font-size: 50px;
+}
+h2 {
+  font-size: 45px;
+}
+h3 {
+  font-size: 40px;
+}
+h4 {
+  font-size: 35px;
+}
+h5 {
+  font-size: 30px;
+}
+h6 {
+  font-size: 25px;
+}
+
+p,
+ul,
+ol {
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  --flow-space: 0.5em;
+}
+
+h1 {
+  --flow-space: 1.5em;
+}
+h2 {
+  --flow-space: 1.5em;
+}
+h3 {
+  --flow-space: 1.5em;
+}
+h4 {
+  --flow-space: 1em;
+}
+h5 {
+  --flow-space: 1em;
+}
+h6 {
+  --flow-space: 1em;
+}

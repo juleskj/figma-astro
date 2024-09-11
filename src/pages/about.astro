@@ -50,12 +50,15 @@ import TextBox from "../components/TextBox.astro";
       slot="btn_slot"
     />
   </FourDiv>
-  <TextBox
-    box_header="hello"
-    box_text="Lorem ipsum dolhor sit amet consectetur adipisicing elit. Officia eos, maiores autem qui animi sequi aut dolores et dicta voluptates laboriosam doloribus voluptas nisi velit porro sunt odio molestiae iusto!"
-    box_tag="hello im a tag"
-    variant="yellow_tag"
-  />
+  <div class="text_box">
+    <p class="tag">hellow im tag</p>
+    <h2>Financial Projections</h2>
+    <p>
+      Lorem ipsum dolhor sit amet consectetur adipisicing elit. Officia eos,
+      maiores autem qui animi sequi aut dolores et dicta voluptates laboriosam
+      doloribus voluptas nisi velit porro sunt odio molestiae iusto!
+    </p>
+  </div>
 </Layout>
 
 <style>
@@ -65,5 +68,12 @@ import TextBox from "../components/TextBox.astro";
     align-items: center;
     justify-content: flex-start;
     gap: 1rem;
+  }
+
+  .text_box {
+    p:not([class]) {
+      word-wrap: break-word;
+      max-width: 65ch;
+    }
   }
 </style>
