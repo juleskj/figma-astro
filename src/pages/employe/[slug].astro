@@ -1,0 +1,89 @@
+---
+import Layout from "../../components/Layout.astro";
+
+export async function getStaticPaths() {
+  const teamData = await fetch(
+    "https://raw.githubusercontent.com/juleskj/frontend-design/main/resources/json/employees.json"
+  ).then((res) => res.json());
+  return teamData.map((employe) => {
+    return {
+      params: { slug: employe.slug },
+      props: { singleData: employe },
+    };
+  });
+}
+
+const { singleData } = Astro.props;
+---
+
+<Layout title={singleData.name}>
+  <a href="/team" class="back"><p>Back</p></a>
+
+  <div class="single_card">
+    <div class="img_container">
+      <img src={singleData.img} alt={singleData.name} />
+    </div>
+
+    <div class="info_box">
+      <div class="name_some">
+        <div class="name_box">
+          <h6>{singleData.name}</h6>
+          <p>{singleData.title}</p>
+        </div>
+        <div class="some">
+          <a href="/"><img src="/public/images/twitter.svg" alt="" /></a>
+          <a href="/"><img src="/public/images/facebook.svg" alt="" /></a>
+          <a href="/"><img src="/public/images/insta.svg" alt="" /></a>
+        </div>
+      </div>
+      <p>
+        {singleData.description}
+      </p>
+
+      <hr />
+      <h5>Past experience</h5>
+      <p>
+        nesciunt necessitatibus voluptatum magni iusto nisi incidunt corrupti,
+        quis debitis laudantium aspernatur fugiat neque. Doloribus excepturi
+        dignissimos maiores doloremque!
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
+        delectus nostrum, nesciunt necessitatibus voluptatum magni iusto nisi
+        incidunt corrupti, quis debitis laudantium aspernatur fugiat neque.
+        Doloribus excepturi dignissimos maiores doloremque!
+      </p>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .single_card {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 3rem;
+    & :is(.info_box, .img_container) {
+      flex: 1 1 350px;
+    }
+  }
+
+  .img_container img {
+    border-radius: var(--small-border-radius);
+  }
+
+  .info_box {
+    display: grid;
+    gap: 1rem;
+  }
+  .name_some {
+    display: flex;
+    flex-wrap: row wrap;
+    justify-content: space-between;
+  }
+  .some {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+</style>

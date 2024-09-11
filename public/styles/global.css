@@ -87,6 +87,7 @@ full bleed men deres content, som tekst skal være inde i content */
   .text_box {
     display: flex;
     flex-direction: column;
+
     gap: 1rem;
 
     & p:not([class]) {

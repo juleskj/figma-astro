@@ -2,25 +2,31 @@
 const { teamData } = Astro.props;
 ---
 
-<div class="team_card">
-  <div class="img_w_tag">
-    <img src={teamData.img} alt={"image of " + teamData.name} />
-    <p class="tag">{teamData.title}</p>
-  </div>
-  <div class="info_box">
-    <h6>{teamData.name}</h6>
-    <p>
-      {teamData.description}
-    </p>
-    <div class="some">
-      <a href="/"><img src="/public/images/twitter.svg" alt="" /></a>
-      <a href="/"><img src="/public/images/facebook.svg" alt="" /></a>
-      <a href="/"><img src="/public/images/insta.svg" alt="" /></a>
+<a href={`/employe/${teamData.slug}`}>
+  <div class="team_card">
+    <div class="img_w_tag">
+      <img src={teamData.img} alt={"image of " + teamData.name} />
+      <p class="tag">{teamData.title}</p>
+    </div>
+    <div class="info_box">
+      <h6>{teamData.name}</h6>
+      <p>
+        {teamData.description}
+      </p>
+      <div class="some">
+        <a href="/"><img src="/public/images/twitter.svg" alt="" /></a>
+        <a href="/"><img src="/public/images/facebook.svg" alt="" /></a>
+        <a href="/"><img src="/public/images/insta.svg" alt="" /></a>
+      </div>
     </div>
   </div>
-</div>
+</a>
 
 <style>
+  a {
+    text-decoration: none;
+    color: var(--black-color);
+  }
   #card_container {
     display: flex;
     flex-flow: row wrap;
