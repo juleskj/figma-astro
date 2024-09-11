@@ -46,7 +46,9 @@ const {
     background-color: var(--btn-color);
     border-radius: var(--border-radius);
     &:hover {
-      --mix-with: 30% #000;
+      --mix-with: 100% #000;
+      outline: var(--white-color) solid 1px;
+      color: var(--white-color);
     }
     &:active {
       --mix-with: 20% #000;
@@ -63,7 +65,9 @@ const {
     border-radius: var(--border-radius);
     color: var(--white-color);
     &:hover {
-      --mix-with: 30% #fff;
+      --mix-with: 100% #fff;
+      outline: 3px solid var(--black-color);
+      color: var(--black-color);
     }
     &:active {
       --mix-with: 20% #fff;
@@ -79,7 +83,9 @@ const {
     background-color: var(--btn-color);
     border-radius: var(--border-radius);
     &:hover {
-      --mix-with: 30% #fff;
+      --mix-with: 100% #fff;
+      outline: 3px solid var(--yellow-color);
+      color: var(--black-color);
     }
     &:active {
       --mix-with: 20% #000;

@@ -10,7 +10,7 @@ import Button from "../components/Button.astro";
   <div class="img_container">
     <img class="under_box" src="/public/images/project_img.png" alt="" />
 
-    <div class="case_info">
+    <div class="box_over">
       <div class="info">
         <div class="case_name">
           <h6>case name</h6>
@@ -116,7 +116,6 @@ import Button from "../components/Button.astro";
   /* image with a box over */
 
   img {
-    margin-top: 100px;
     object-fit: cover;
     flex-shrink: 0;
     border-radius: var(--small-border-radius);
@@ -128,14 +127,13 @@ import Button from "../components/Button.astro";
     justify-content: flex-end;
   }
 
-  .case_info {
-    height: fit-content;
-
-    background-color: var(--black-color);
-
+  .box_over {
+    /* get box over the image box */
     margin: -20px auto 0;
     z-index: 1;
 
+    height: fit-content;
+    background-color: var(--black-color);
     display: flex;
     flex-flow: wrap row;
     justify-content: space-evenly;

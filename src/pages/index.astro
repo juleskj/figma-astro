@@ -13,6 +13,64 @@ const teamData = await fetch(
 ---
 
 <Layout title="Forside">
+  <div class="hero_forside">
+    <div class="full full-bleed">
+      <div class="hero_header">
+        <h2>helllow</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores
+          adipisci consequatur corporis non, est perspiciatis odit quas magnam.
+          Placeat, repellendus! Facilis unde placeat cupiditate incidunt
+          consequuntur eligendi, rem pariatur porro.
+        </p>
+        <Button btn_text="book a meeting" variant="white_btn" size="big_btn" />
+      </div>
+      <img src="../images/forside_hero.png" alt="" class="hero_img" />
+    </div>
+
+    <div class="box_over">
+      <div class="hero_card">
+        <h3>hehasd</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi soluta
+          recusandae quasi, doloribus molestias aspernatur ullam quo pariatur
+          aliquid harum.
+        </p>
+        <Button
+          btn_text="hellow im button"
+          variant="black_btn"
+          size="big_btn"
+        />
+      </div>
+      <div class="hero_card">
+        <h3>hehasd</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi soluta
+          recusandae quasi, doloribus molestias aspernatur ullam quo pariatur
+          aliquid harum.
+        </p>
+        <Button
+          btn_text="hellow im button"
+          variant="black_btn"
+          size="big_btn"
+        />
+      </div>
+      <div class="hero_card">
+        <h3>hehasd</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi soluta
+          recusandae quasi, doloribus molestias aspernatur ullam quo pariatur
+          aliquid harum.
+        </p>
+        <Button
+          btn_text="hellow im button"
+          variant="black_btn"
+          size="big_btn"
+        />
+      </div>
+    </div>
+  </div>
+
   <Image_w_List
     position_green="left_top_green"
     position_dots="left_top_dots"
@@ -105,6 +163,60 @@ const teamData = await fetch(
 </Layout>
 
 <style>
+  .hero_forside {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    container-type: inline-size;
+  }
+  .full {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @container (width < 800px) {
+      display: grid;
+      grid-template-columns: 1fr auto;
+
+      & .hero_header {
+        z-index: 1;
+        padding: var(--even-padding-xs);
+      }
+      & img {
+        filter: blur(16px);
+      }
+      > * {
+        grid-column: 1 / span 2;
+        grid-row: 1 / span 2;
+      }
+    }
+  }
+
+  .hero_header,
+  img {
+    flex: 1 1 500px;
+    max-width: 500px;
+  }
+
+  .box_over {
+    /* get box over the image box */
+    margin: -20px auto 0;
+    z-index: 1;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 2rem;
+    & > * {
+      flex: 1 1 200px;
+      background-color: var(--transparent-black);
+      backdrop-filter: blur(16px);
+
+      color: var(--white-color);
+      padding: var(--even-padding-s);
+      border-radius: var(--border-radius);
+      outline: 1px solid var(--gray-color);
+    }
+  }
+
   /**
 *
 *
