@@ -8,9 +8,8 @@ import Button from "../components/Button.astro";
   <Hero_img tag_text="case studies single" hero_text="taxes & efficiency" />
 
   <div class="img_container">
-    <div class="img_box">
-      <img src="/public/images/forside_hero.png" alt="" />
-    </div>
+    <img class="under_box" src="/public/images/project_img.png" alt="" />
+
     <div class="case_info">
       <div class="info">
         <div class="case_name">
@@ -31,37 +30,118 @@ import Button from "../components/Button.astro";
       </div>
     </div>
   </div>
+
+  <div class="slim_content">
+    <h4>Project overview</h4>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ab eius
+      explicabo, a dolore iusto culpa! Nobis natus amet iure sapiente hic
+      corrupti illo exercitationem optio, earum quis fugiat accusamus.
+    </p>
+
+    <ul>
+      <li>
+        <p>
+          It brings the right people together with all the right information and
+          tools to get work done
+        </p>
+      </li>
+      <li>
+        <p>
+          It brings the right people together with all the right information and
+          tools to get work done
+        </p>
+      </li>
+      <li>
+        <p>
+          It brings the right people together with all the right information and
+          tools to get work done
+        </p>
+      </li>
+      <li>
+        <p>
+          It brings the right people together with all the right information and
+          tools to get work done
+        </p>
+      </li>
+    </ul>
+
+    <h5>Storyboard</h5>
+
+    <p>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque assumenda
+      delectus accusamus in incidunt ullam fugit illo, quia corrupti obcaecati
+      iste et eligendi voluptate non voluptatibus magni adipisci corporis
+      inventore?
+    </p>
+    <p>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque assumenda
+      delectus accusamus in incidunt ullam fugit illo, quia corrupti obcaecati
+      iste et eligendi voluptate non voluptatibus magni adipisci corporis
+      inventore?
+    </p>
+
+    <img src="../images/forside_hero.png" alt="" />
+    <h5>Storyboard</h5>
+
+    <p>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque assumenda
+      delectus accusamus in incidunt ullam fugit illo, quia corrupti obcaecati
+      iste et eligendi voluptate non voluptatibus magni adipisci corporis
+      inventore?
+    </p>
+    <p>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque assumenda
+      delectus accusamus in incidunt ullam fugit illo, quia corrupti obcaecati
+      iste et eligendi voluptate non voluptatibus magni adipisci corporis
+      inventore?
+    </p>
+  </div>
 </Layout>
 
 <style>
-  .img_box {
-    display: grid;
-    grid-template-rows: subgrid;
-    grid-row: 2;
-    grid-column: 1 / span 2;
+  .slim_content {
+    margin: 0 150px;
   }
+  @media (width < 800px) {
+    .slim_content {
+      margin: 0 10px;
+    }
+  }
+
+  .slim_content :is(ul, img) {
+    padding: var(--even-padding-s);
+  }
+
+  /* image with a box over */
 
   img {
-    grid-row: 1 /2;
+    margin-top: 100px;
+    object-fit: cover;
+    flex-shrink: 0;
+    border-radius: var(--small-border-radius);
   }
+
   .img_container {
-    display: grid;
-    grid-template-rows: auto auto;
+    display: flex;
+    flex-flow: wrap column;
+    justify-content: flex-end;
   }
+
   .case_info {
     height: fit-content;
+
     background-color: var(--black-color);
 
-    grid-column: 1 / span 2;
-    grid-row: 2;
+    margin: -20px auto 0;
+    z-index: 1;
 
     display: flex;
     flex-flow: wrap row;
     justify-content: space-evenly;
     align-items: flex-end;
     gap: 2rem;
-    padding: var(--even-padding-m);
-    margin: 50px 50px;
+    padding: var(--even-padding-s);
     border-radius: var(--border-radius);
 
     & :not(.button_div) {
@@ -74,6 +154,6 @@ import Button from "../components/Button.astro";
     flex-flow: wrap row;
     justify-content: space-evenly;
 
-    gap: 2rem;
+    gap: 1rem;
   }
 </style>
