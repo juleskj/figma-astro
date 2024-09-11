@@ -5,6 +5,9 @@ import Image_w_List from "../components/Image_w_List.astro";
 import FourDiv from "../components/FourDiv.astro";
 import Button from "../components/Button.astro";
 import TeamCard from "../components/TeamCard.astro";
+const teamData = await fetch(
+  "https://raw.githubusercontent.com/juleskj/frontend-design/main/resources/json/employees.json"
+).then((res) => res.json());
 ---
 
 <Layout title="About">
@@ -52,79 +55,90 @@ import TeamCard from "../components/TeamCard.astro";
   </FourDiv>
   <div class="Text_team">
     <div class="text_box">
-      <p class="tag">hellow im tag</p>
-      <h2>Financial Projections</h2>
+      <p class="tag">our team</p>
+      <h2>We champion the bold to achieve the extraordinary</h2>
       <p>
         Lorem ipsum dolhor sit amet consectetur adipisicing elit. Officia eos,
         maiores autem qui animi sequi aut dolores et dicta voluptates laboriosam
         doloribus voluptas nisi velit porro sunt odio molestiae iusto!
       </p>
     </div>
-    <div class="team_preveiw">
-      <!-- <TeamCard />
-      <TeamCard />
-      <TeamCard /> -->
+    <div id="card_container">
+      {
+        teamData.slice(0, 3).map((employ) => {
+          return <TeamCard teamData={employ} />;
+        })
+      }
     </div>
   </div>
-
-  <div class="margin_auto">
-    <div class="text_box">
-      <p class="tag">FAQ</p>
-      <h4>Custermer questions</h4>
+  <div>
+    <div class="margin_auto">
+      <div class="text_box">
+        <p class="tag">FAQ</p>
+        <h4>Custermer questions</h4>
+      </div>
+      <details name="a">
+        <summary
+          ><h6>what will happend when i've sent my application?</h6></summary
+        >
+        <div>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt.</p>
+        </div>
+      </details>
+      <details name="a">
+        <summary><h6>can i get free trail before i purchase?</h6></summary>
+        <div>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore
+            impedit natus, error quasi placeat sit quaerat eos necessitatibus
+            architecto, qui ipsam repudiandae saepe numquam quod autem deleniti
+            ipsum, cumque aliquid.
+          </p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt.</p>
+        </div>
+      </details>
+      <details name="a">
+        <summary
+          ><h6>what should i inclide in my personal statemnt?</h6></summary
+        >
+        <div>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt.</p>
+        </div>
+      </details>
+      <details name="a">
+        <summary
+          ><h6>will membership plans be charged automatically?</h6></summary
+        >
+        <div>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt.</p>
+        </div>
+      </details>
+      <details name="a">
+        <summary
+          ><h6>what will happen when i've sent my application?</h6></summary
+        >
+        <div>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt.</p>
+        </div>
+      </details>
+      <details name="a">
+        <summary><h6>can i get a free trail before i purchase?</h6></summary>
+        <div>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt.</p>
+        </div>
+      </details>
     </div>
-    <details name="a">
-      <summary
-        ><h6>what will happend when i've sent my application?</h6></summary
-      >
-      <div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt.</p>
-      </div>
-    </details>
-    <details name="a">
-      <summary><h6>can i get free trail before i purchase?</h6></summary>
-      <div>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore
-          impedit natus, error quasi placeat sit quaerat eos necessitatibus
-          architecto, qui ipsam repudiandae saepe numquam quod autem deleniti
-          ipsum, cumque aliquid.
-        </p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt.</p>
-      </div>
-    </details>
-    <details name="a">
-      <summary><h6>what should i inclide in my personal statemnt?</h6></summary>
-      <div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt.</p>
-      </div>
-    </details>
-    <details name="a">
-      <summary><h6>will membership plans be charged automatically?</h6></summary
-      >
-      <div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt.</p>
-      </div>
-    </details>
-    <details name="a">
-      <summary><h6>what will happen when i've sent my application?</h6></summary
-      >
-      <div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt.</p>
-      </div>
-    </details>
-    <details name="a">
-      <summary><h6>can i get a free trail before i purchase?</h6></summary>
-      <div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt.</p>
-      </div>
-    </details>
   </div>
 </Layout>
 
 <style>
-  .margin_auto {
-    margin: auto auto;
+  /******** team container style***********/
+
+  div:has(.margin_auto) {
     background-color: var(--gray-color);
+  }
+  .margin_auto {
+    margin: 100px 100px;
     & .text_box {
       display: flex;
       flex-direction: column;
@@ -132,10 +146,24 @@ import TeamCard from "../components/TeamCard.astro";
       margin: 10px 0;
     }
   }
-  .full-bleed {
-    background-color: var(--gray-color);
-    margin: 100px 0;
+
+  @media (width < 800px) {
+    .margin_auto {
+      margin: 0 0;
+    }
   }
+
+  .text_box:has(p) {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    & p:not([class]) {
+      word-wrap: break-word;
+      max-width: 65ch;
+    }
+  }
+
   details {
     padding: var(--small-padding);
     border-bottom: solid 2px gray;
@@ -184,23 +212,12 @@ import TeamCard from "../components/TeamCard.astro";
 '
 '
 '*/
-  .team_preveiw {
-    display: flex;
-    flex-flow: row wrap;
-    gap: 2rem;
-  }
+
   li {
     list-style-type: none;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     gap: 1rem;
-  }
-
-  .text_box {
-    p:not([class]) {
-      word-wrap: break-word;
-      max-width: 65ch;
-    }
   }
 </style>
