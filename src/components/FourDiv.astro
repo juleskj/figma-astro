@@ -5,7 +5,7 @@ const { bg_color } = Astro.props;
 <div class={bg_color + " " + "full-bleed"}>
   <div class="div_containers">
     <div class="text_button">
-      <div class="text_box">
+      <article class="text_box">
         <p class="tag">growing with our clients</p>
         <h2>our core values & principles</h2>
         <p>
@@ -14,7 +14,7 @@ const { bg_color } = Astro.props;
           magnam, beatae vitae pariatur molestias nam id obcaecati, excepturi
           fuga. Voluptatum.
         </p>
-      </div>
+      </article>
       <div class="button_div">
         <slot name="btn_slot" />
       </div>
@@ -92,7 +92,6 @@ const { bg_color } = Astro.props;
     & .text_box {
       display: grid;
       grid-column: 1 / span 2;
-      gap: 1rem;
     }
 
     & .button_div {

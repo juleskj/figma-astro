@@ -3,10 +3,10 @@ const { heroImg, tag_text, hero_text } = Astro.props;
 ---
 
 <div id="hero_img" class="full-bleed">
-  <div class="text_on_img">
+  <article class="text_on_img">
     <p class="tag">{tag_text}</p>
     <h1>{hero_text}</h1>
-  </div>
+  </article>
 </div>
 
 <style>
@@ -25,6 +25,5 @@ const { heroImg, tag_text, hero_text } = Astro.props;
     display: flex;
     flex-flow: wrap column;
     width: fit-content;
-    gap: 1rem;
   }
 </style>

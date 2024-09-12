@@ -4,7 +4,7 @@ const { percent, pie_header } = Astro.props;
 
 <div class="container">
   <div class="pie_chart">
-    <h4>{percent}</h4>
+    <h4 class="pie_precent">{percent}</h4>
     <div class="parent" style={"--percent:" + { percent } + ";"}>
       <div class="child"></div>
     </div>

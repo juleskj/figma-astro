@@ -8,7 +8,7 @@ const { teamData } = Astro.props;
       <img src={teamData.img} alt={"image of " + teamData.name} />
       <p class="tag">{teamData.title}</p>
     </div>
-    <div class="info_box">
+    <article class="info_box">
       <h6>{teamData.name}</h6>
       <p>
         {teamData.description}
@@ -18,7 +18,7 @@ const { teamData } = Astro.props;
         <a href="/"><img src="/public/images/facebook.svg" alt="" /></a>
         <a href="/"><img src="/public/images/insta.svg" alt="" /></a>
       </div>
-    </div>
+    </article>
   </div>
 </a>
 

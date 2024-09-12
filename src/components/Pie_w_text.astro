@@ -4,11 +4,11 @@ const { pie_tag, pie_header_text, pie_under_header } = Astro.props;
 
 <div class="full-bleed">
   <div class="pie_textbox">
-    <div class="text_box">
+    <article class="text_box">
       <p class="tag" style="background-color:var(--white-color)">{pie_tag}</p>
       <h2>{pie_header_text}</h2>
       <p>{pie_under_header}</p>
-    </div>
+    </article>
 
     <div class="pie_container">
       <slot name="pie_slot" />
