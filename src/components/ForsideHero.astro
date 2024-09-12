@@ -1,0 +1,130 @@
+---
+import ButtonA from "./ButtonA.astro";
+---
+
+<div class="full full-bleed">
+  <article class="hero_header">
+    <h1>Adam Buschemia Business Consultant</h1>
+    <p>
+      Get help from Alex Moore, a professional business coach with advanced
+      experience on growth and business scaling.
+    </p>
+    <ButtonA
+      link="/team"
+      size="big_anchor"
+      variant="white_anchor"
+      a_text="book a meeting"
+    />
+  </article>
+  <img
+    class="full-bleed"
+    src="../images/forside_hero.png"
+    alt=""
+    class="hero_img"
+  />
+</div>
+
+<div class="hero_forside">
+  <div class="box_over">
+    <article class="hero_card">
+      <h6>Finance & Restructuring</h6>
+      <p>
+        Get help from Alex Moore, a professional business coach with advanced
+        experience on growth and business scaling
+      </p>
+      <ButtonA
+        link="/team"
+        size="big_anchor"
+        variant="black_anchor"
+        a_text="our servie"
+      />
+    </article>
+    <article class="hero_card">
+      <h6>Our Approach</h6>
+      <p>
+        Get help from Alex Moore, a professional business coach with advanced
+        experience on growth and business scaling
+      </p>
+      <ButtonA
+        link="/about"
+        size="big_anchor"
+        variant="black_anchor"
+        a_text="more about"
+      />
+    </article>
+    <article class="hero_card">
+      <h6>Consultalk Result</h6>
+      <p>
+        Get help from Alex Moore, a professional business coach with advanced
+        experience on growth and business scaling
+      </p>
+      <ButtonA
+        link="/case_study"
+        size="big_anchor"
+        variant="black_anchor"
+        a_text="explore our suloution"
+      />
+    </article>
+  </div>
+</div>
+
+<style>
+  .full {
+    container-type: inline-size;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    background-color: var(--black-color);
+
+    & :is(h1, p) {
+      color: var(--white-color);
+    }
+
+    @container (width < 800px) {
+      & .hero_header {
+        padding: var(--even-padding-m);
+      }
+      & img {
+        display: none;
+      }
+    }
+  }
+
+  .hero_header,
+  .full img {
+    flex: 1 1 500px;
+  }
+
+  .hero_header {
+    padding-left: max(1rem, 50% - var(--content-width) / 2);
+  }
+
+  .full img {
+    width: 100px;
+  }
+  .box_over {
+    /********* get box over the image box *********/
+    margin: -30px auto 0;
+    z-index: 1;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 2rem;
+    & > * {
+      flex: 1 1 200px;
+
+      display: flex;
+      flex-flow: wrap column;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      background-color: var(--transparent-black);
+      backdrop-filter: blur(16px);
+
+      color: var(--white-color);
+      padding: var(--even-padding-s);
+      border-radius: var(--small-border-radius);
+      outline: 1px solid var(--gray-color);
+    }
+  }
+</style>

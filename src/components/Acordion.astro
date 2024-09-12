@@ -1,0 +1,49 @@
+---
+const { summary, answer } = Astro.props;
+---
+
+<details>
+  <summary><h6>{summary}</h6></summary>
+  <div>
+    <p>{answer}</p>
+  </div>
+</details>
+
+<style>
+  details {
+    padding: var(--small-padding);
+    border-bottom: solid 2px gray;
+
+    & summary {
+      list-style: none;
+      display: flex;
+      & h6 {
+        text-transform: capitalize;
+        margin-right: 100px;
+      }
+    }
+  }
+
+  details div {
+    padding: 10px 0;
+    word-break: break-all;
+    max-width: 80ch;
+  }
+
+  summary::after {
+    content: "+";
+    font-size: 2rem;
+    margin-left: auto;
+    transition: 0.2s;
+  }
+  details[open] summary:after {
+    content: " -";
+    transform: scale(2);
+  }
+
+  /* sigh, Safari again */
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

@@ -5,6 +5,8 @@ import Image_w_List from "../components/Image_w_List.astro";
 import FourDiv from "../components/FourDiv.astro";
 import ButtonA from "../components/ButtonA.astro";
 import TeamCard from "../components/TeamCard.astro";
+
+import Acordion from "../components/Acordion.astro";
 const teamData = await fetch(
   "https://raw.githubusercontent.com/juleskj/frontend-design/main/resources/json/employees.json"
 ).then((res) => res.json());
@@ -78,56 +80,31 @@ const teamData = await fetch(
         <p class="tag">FAQ</p>
         <h4>Custermer questions</h4>
       </div>
-      <details name="a">
-        <summary
-          ><h6>what will happend when i've sent my application?</h6></summary
-        >
-        <div>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt.</p>
-        </div>
-      </details>
-      <details name="a">
-        <summary><h6>can i get free trail before i purchase?</h6></summary>
-        <div>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore
-            impedit natus, error quasi placeat sit quaerat eos necessitatibus
-            architecto, qui ipsam repudiandae saepe numquam quod autem deleniti
-            ipsum, cumque aliquid.
-          </p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt.</p>
-        </div>
-      </details>
-      <details name="a">
-        <summary
-          ><h6>what should i inclide in my personal statemnt?</h6></summary
-        >
-        <div>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt.</p>
-        </div>
-      </details>
-      <details name="a">
-        <summary
-          ><h6>will membership plans be charged automatically?</h6></summary
-        >
-        <div>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt.</p>
-        </div>
-      </details>
-      <details name="a">
-        <summary
-          ><h6>what will happen when i've sent my application?</h6></summary
-        >
-        <div>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt.</p>
-        </div>
-      </details>
-      <details name="a">
-        <summary><h6>can i get a free trail before i purchase?</h6></summary>
-        <div>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt.</p>
-        </div>
-      </details>
+
+      <Acordion
+        summary="what will happend when i've sent my application?"
+        answer="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt."
+      />
+      <Acordion
+        summary="can i get free trail before i purchase?"
+        answer="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt."
+      />
+      <Acordion
+        summary="what should i inclide in my personal statemnt?"
+        answer="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt."
+      />
+      <Acordion
+        summary="will membership plans be charged automatically?"
+        answer="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt."
+      />
+      <Acordion
+        summary="what will happen when i've sent my application?"
+        answer="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt."
+      />
+      <Acordion
+        summary="can i get a free trail before i purchase?"
+        answer="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt."
+      />
     </div>
   </div>
 </Layout>
@@ -163,43 +140,6 @@ const teamData = await fetch(
       word-wrap: break-word;
       max-width: 65ch;
     }
-  }
-
-  details {
-    padding: var(--small-padding);
-    border-bottom: solid 2px gray;
-
-    & summary {
-      list-style: none;
-      display: flex;
-      & h6 {
-        text-transform: capitalize;
-        margin-right: 100px;
-      }
-    }
-  }
-
-  details div {
-    padding: 10px 0;
-    word-break: break-all;
-    max-width: 80ch;
-  }
-
-  summary::after {
-    content: "+";
-    font-size: 2rem;
-    margin-left: auto;
-    transition: 0.2s;
-  }
-  details[open] summary:after {
-    content: " -";
-    transform: scale(2);
-  }
-
-  /* sigh, Safari again */
-
-  summary::-webkit-details-marker {
-    display: none;
   }
 
   /* 

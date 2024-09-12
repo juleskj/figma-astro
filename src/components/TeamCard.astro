@@ -6,6 +6,7 @@ const { teamData } = Astro.props;
   <div class="team_card">
     <div class="img_w_tag">
       <img src={teamData.img} alt={"image of " + teamData.name} />
+
       <p class="tag">{teamData.title}</p>
     </div>
     <article class="info_box">
@@ -33,7 +34,7 @@ const { teamData } = Astro.props;
 
     scale: 1.05;
     transition: 0.3s;
-    & img {
+    & img:not(.some img) {
       border-radius: 20px 20px 0 0;
     }
   }
