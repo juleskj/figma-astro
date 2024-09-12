@@ -3,14 +3,14 @@ import Layout from "../components/Layout.astro";
 import Hero_img from "../components/Hero_img.astro";
 import Image_w_List from "../components/Image_w_List.astro";
 import FourDiv from "../components/FourDiv.astro";
-import Button from "../components/Button.astro";
+import ButtonA from "../components/ButtonA.astro";
 import TeamCard from "../components/TeamCard.astro";
 const teamData = await fetch(
   "https://raw.githubusercontent.com/juleskj/frontend-design/main/resources/json/employees.json"
 ).then((res) => res.json());
 ---
 
-<Layout title="About">
+<Layout title="About" hasAktivForside="true">
   <Hero_img
     heroImg="service_boost.png"
     tag_text="service"
@@ -46,11 +46,12 @@ const teamData = await fetch(
   </Image_w_List>
 
   <FourDiv bg_color="gray_bg">
-    <Button
-      btn_text="get in touch"
-      size="big_btn"
-      variant="black_btn"
+    <ButtonA
       slot="btn_slot"
+      link="/team"
+      size="big_anchor"
+      variant="black_anchor"
+      a_text="get in touch"
     />
   </FourDiv>
   <div class="Text_team">

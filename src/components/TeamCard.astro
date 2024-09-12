@@ -27,6 +27,16 @@ const { teamData } = Astro.props;
     text-decoration: none;
     color: var(--black-color);
   }
+  .team_card:hover {
+    background-color: var(--gray-color);
+    border-radius: var(--small-border-radius);
+
+    scale: 1.05;
+    transition: 0.3s;
+    & img {
+      border-radius: 20px 20px 0 0;
+    }
+  }
   #card_container {
     display: flex;
     flex-flow: row wrap;

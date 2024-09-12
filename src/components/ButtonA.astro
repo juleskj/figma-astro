@@ -1,25 +1,11 @@
 ---
-const {
-  btn_type,
-  btn_value,
-  form_id,
-  btn_text,
-  size,
-  variant,
-  popover_target,
-} = Astro.props;
+const { size, variant, link, a_text } = Astro.props;
 ---
 
-<button
-  popovertarget={popover_target}
-  class={size + " " + variant}
-  type={btn_type}
-  form={form_id}
-  value={btn_value}>{btn_text}</button
->
+<a class={size + " " + variant} href={link}>{a_text}</a>
 
 <style>
-  button {
+  a {
     height: fit-content;
     width: fit-content;
     display: flex;
@@ -29,21 +15,21 @@ const {
   }
 
   /************ diffrent size buttons ************/
-  .big_btn {
+  .big_anchor {
     padding: var(--big-padding);
   }
 
-  .small_btn {
+  .small_anchor {
     padding: var(--small-padding);
   }
   /************ diffrent variant buttons ************/
-  .white_btn {
-    --btn-color: color-mix(
+  .white_anchor {
+    --anchor-color: color-mix(
       in oklab,
       var(--white-color),
       var(--mix-with, 0% #fff)
     );
-    background-color: var(--btn-color);
+    background-color: var(--anchor-color);
     border-radius: var(--border-radius);
     &:hover {
       --mix-with: 100% #000;
@@ -56,13 +42,13 @@ const {
     }
   }
 
-  .black_btn {
-    --btn-color: color-mix(
+  .black_anchor {
+    --anchor-color: color-mix(
       in oklab,
       var(--black-color),
       var(--mix-with, 0% #fff)
     );
-    background-color: var(--btn-color);
+    background-color: var(--anchor-color);
     border-radius: var(--border-radius);
     color: var(--white-color);
     &:hover {
@@ -76,13 +62,13 @@ const {
     }
   }
 
-  .yellow_btn {
-    --btn-color: color-mix(
+  .yellow_anchor {
+    --anchor-color: color-mix(
       in oklab,
       var(--yellow-color),
       var(--mix-with, 0% #fff)
     );
-    background-color: var(--btn-color);
+    background-color: var(--anchor-color);
     border-radius: var(--border-radius);
     &:hover {
       --mix-with: 100% #fff;

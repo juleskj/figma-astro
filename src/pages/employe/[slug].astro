@@ -1,5 +1,6 @@
 ---
 import Layout from "../../components/Layout.astro";
+import ButtonA from "../../components/ButtonA.astro";
 
 export async function getStaticPaths() {
   const teamData = await fetch(
@@ -17,9 +18,15 @@ const { singleData } = Astro.props;
 ---
 
 <Layout title={singleData.name}>
-  <a href="/team" class="back"><p>Back</p></a>
-
   <div class="single_card">
+    <div class="button_div">
+      <ButtonA
+        link="/team"
+        a_text="back"
+        size="small_anchor"
+        variant="black_anchor"
+      />
+    </div>
     <div class="img_container">
       <img src={singleData.img} alt={singleData.name} />
     </div>
@@ -62,10 +69,18 @@ const { singleData } = Astro.props;
 </Layout>
 
 <style>
+  .button_div {
+    position: absolute;
+    top: 1%;
+    left: -2%;
+  }
   .single_card {
+    position: relative;
     display: flex;
     flex-flow: row wrap;
     gap: 3rem;
+
+    padding: var(--even-padding-m);
     & :is(.info_box, .img_container) {
       flex: 1 1 350px;
     }

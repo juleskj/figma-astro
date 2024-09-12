@@ -20,12 +20,14 @@ import Button from "./Button.astro";
   </div>
 
   <nav>
-    <a href="/"><h2>AskExperts</h2></a>
+    <a id="logo" href="/"><h2>AskExperts</h2></a>
     <ul>
       <li><a href="/">Home</a></li>
       <li><a href="/about">About</a></li>
       <li><a href="/team">Team</a></li>
-      <li><a href="/case_study">Case study</a></li>
+      <li>
+        <a href="/case_study">Case study</a>
+      </li>
     </ul>
 
     <Button
@@ -53,18 +55,22 @@ import Button from "./Button.astro";
     & a {
       text-decoration: none;
       color: var(--gray-color);
+      border-radius: var(--border-radius);
+
+      &:hover:not(#logo) {
+        outline: 1px var(--yellow-color) solid;
+        outline-offset: 5px;
+        transition: 0.3s;
+      }
     }
   }
 
   ul {
     display: flex;
-
     gap: 1rem;
 
     & li {
       list-style-type: none;
-      & a {
-      }
     }
   }
 

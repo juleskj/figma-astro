@@ -1,5 +1,7 @@
 ---
 import Layout from "../components/Layout.astro";
+import ButtonA from "../components/ButtonA.astro";
+
 import Button from "../components/Button.astro";
 import Image_w_List from "../components/Image_w_List.astro";
 import FourDiv from "../components/FourDiv.astro";
@@ -20,7 +22,12 @@ const teamData = await fetch(
         Get help from Alex Moore, a professional business coach with advanced
         experience on growth and business scaling.
       </p>
-      <Button btn_text="book a meeting" variant="white_btn" size="big_btn" />
+      <ButtonA
+        link="/team"
+        size="big_anchor"
+        variant="white_anchor"
+        a_text="book a meeting"
+      />
     </article>
     <img
       class="full-bleed"
@@ -38,7 +45,12 @@ const teamData = await fetch(
           Get help from Alex Moore, a professional business coach with advanced
           experience on growth and business scaling
         </p>
-        <Button btn_text="our servies" variant="black_btn" size="big_btn" />
+        <ButtonA
+          link="/team"
+          size="big_anchor"
+          variant="black_anchor"
+          a_text="our servie"
+        />
       </article>
       <article class="hero_card">
         <h6>Our Approach</h6>
@@ -46,7 +58,12 @@ const teamData = await fetch(
           Get help from Alex Moore, a professional business coach with advanced
           experience on growth and business scaling
         </p>
-        <Button btn_text="more about" variant="black_btn" size="big_btn" />
+        <ButtonA
+          link="/about"
+          size="big_anchor"
+          variant="black_anchor"
+          a_text="more about"
+        />
       </article>
       <article class="hero_card">
         <h6>Consultalk Result</h6>
@@ -54,10 +71,11 @@ const teamData = await fetch(
           Get help from Alex Moore, a professional business coach with advanced
           experience on growth and business scaling
         </p>
-        <Button
-          btn_text="explore out solution"
-          variant="black_btn"
-          size="big_btn"
+        <ButtonA
+          link="/case_study"
+          size="big_anchor"
+          variant="black_anchor"
+          a_text="explore our suloution"
         />
       </article>
     </div>
@@ -99,11 +117,12 @@ const teamData = await fetch(
   </Pie_w_text>
 
   <FourDiv bg_color="black_bg">
-    <Button
-      btn_text="get in touch"
-      size="big_btn"
-      variant="white_btn"
+    <ButtonA
       slot="btn_slot"
+      link="/team"
+      size="big_anchor"
+      variant="white_anchor"
+      a_text="get in touch"
     />
   </FourDiv>
 
