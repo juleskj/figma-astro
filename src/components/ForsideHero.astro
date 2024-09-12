@@ -25,7 +25,7 @@ import ButtonA from "./ButtonA.astro";
 </div>
 
 <div class="hero_forside">
-  <div class="box_over">
+  <div class="box_over b">
     <article class="hero_card">
       <h6>Finance & Restructuring</h6>
       <p>
@@ -67,7 +67,30 @@ import ButtonA from "./ButtonA.astro";
     </article>
   </div>
 </div>
+<script>
+  // copiring fra gsap
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+  gsap.registerPlugin(ScrollTrigger);
+
+  // scrool trigger timeline
+  let tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".b",
+      start: "top 50%",
+      end: "bottom 80%",
+
+      scrub: false,
+      // markers: true, // viser mærker hvor animation starter og slutter
+    },
+  });
+
+  tl.from(".b", {
+    x: 100,
+    opacity: 0,
+  });
+</script>
 <style>
   .full {
     container-type: inline-size;

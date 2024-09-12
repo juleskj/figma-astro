@@ -23,6 +23,7 @@ const teamData = await fetch(
     position_dots="left_top_dots"
     list_header="what to expect"
     list_tag="we'll work with you"
+    list_p="Lorem ipsum dolhor sit amet consectetur adipisicing elit. Officia eos, maiores autem qui animi sequi aut dolores et dicta voluptates laboriosam doloribus voluptas nisi velit porro sunt odio molestiae iusto!"
   >
     <img
       class="img_border"
@@ -32,12 +33,16 @@ const teamData = await fetch(
     />
 
     <li slot="list_container" class="tick">
-      Bring to the table win-win survival strategies to ensure proactive
-      domination. At the end of the day.
+      <p>
+        Bring to the table win-win survival strategies to ensure proactive
+        domination. At the end of the day.
+      </p>
     </li>
     <li slot="list_container" class="tick">
-      apitalize on low hanging fruit to identify a ballpark value added activity
-      to beta test override the digital
+      <p>
+        apitalize on low hanging fruit to identify a ballpark value added
+        activity to beta test override the digital
+      </p>
     </li>
   </Image_w_List>
 
@@ -70,6 +75,7 @@ const teamData = await fetch(
     list_tag="process"
     grid_container="grid_img-container"
     flex_row="flex_row-reverse"
+    list_p="Lorem ipsum dolhor sit amet consectetur adipisicing elit. Officia eos, maiores autem qui animi sequi aut dolores et dicta voluptates laboriosam doloribus voluptas nisi velit porro sunt odio molestiae iusto!"
   >
     <img
       class="img_border span-2"
@@ -111,6 +117,9 @@ const teamData = await fetch(
 </Layout>
 
 <style>
+  .span-2 {
+    grid-row: 1 / span 2;
+  }
   li {
     list-style-type: none;
     display: flex;

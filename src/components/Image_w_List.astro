@@ -6,6 +6,7 @@ const {
   position_green,
   position_dots,
   grid_container,
+  list_p,
 } = Astro.props;
 ---
 
@@ -19,11 +20,7 @@ const {
   <article class="text_box">
     <p class="tag">{list_tag}</p>
     <h2>{list_header}</h2>
-    <p>
-      Lorem ipsum dolhor sit amet consectetur adipisicing elit. Officia eos,
-      maiores autem qui animi sequi aut dolores et dicta voluptates laboriosam
-      doloribus voluptas nisi velit porro sunt odio molestiae iusto!
-    </p>
+    <p>{list_p}</p>
     <ol>
       <slot name="list_container" />
     </ol>
