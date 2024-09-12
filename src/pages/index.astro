@@ -10,8 +10,6 @@ import SinglePieChart from "../components/SinglePieChart.astro";
 import Pie_w_text from "../components/Pie_w_text.astro";
 import ForsideHero from "../components/ForsideHero.astro";
 
-import DynamiskCard from "../components/DynamiskCard.astro";
-
 const teamData = await fetch(
   "https://raw.githubusercontent.com/juleskj/frontend-design/main/resources/json/employees.json"
 ).then((res) => res.json());
@@ -19,8 +17,6 @@ const teamData = await fetch(
 
 <Layout title="Forside">
   <ForsideHero />
-  <DynamiskCard />
-
   <Image_w_List
     position_green="left_top_green"
     position_dots="left_top_dots"
