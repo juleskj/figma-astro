@@ -53,20 +53,19 @@ import Button from "../components/Button.astro";
       </li>
       <li>
         <p>
-          It brings the right people together with all the right information and
-          tools to get work done
+          We provide operational efficiency, data security, and flexible scale
         </p>
       </li>
       <li>
         <p>
-          It brings the right people together with all the right information and
-          tools to get work done
+          Your best work, together in one package that works seamlessly from
+          your compute
         </p>
       </li>
       <li>
         <p>
-          It brings the right people together with all the right information and
-          tools to get work done
+          Delivers the tools you need to save time Improve field performance
+          always
         </p>
       </li>
     </ul>
@@ -86,7 +85,10 @@ import Button from "../components/Button.astro";
       inventore?
     </p>
 
-    <img src="../images/forside_hero.png" alt="" />
+    <img
+      src="../images/case_study_img.png"
+      alt="picture of two people working together"
+    />
     <h5>Storyboard</h5>
 
     <p>
@@ -158,5 +160,11 @@ import Button from "../components/Button.astro";
     justify-content: space-evenly;
 
     gap: 1rem;
+  }
+
+  ul {
+    > * {
+      padding: var(--small-padding) 0;
+    }
   }
 </style>
