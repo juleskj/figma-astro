@@ -12,28 +12,6 @@ const { percent, pie_header } = Astro.props;
   <h4>{pie_header}</h4>
 </div>
 
-<script>
-  import { gsap } from "gsap";
-  import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-  gsap.registerPlugin(ScrollTrigger);
-
-  let tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".a",
-      start: "top 80%",
-      end: "bottom end",
-      scrub: true,
-      markers: true, // viser mærker hvor animation starter og slutter
-    },
-  });
-
-  tl.from(".a", {
-    x: 800,
-    rotation: 40,
-  });
-</script>
-
 <style>
   .container {
     display: flex;

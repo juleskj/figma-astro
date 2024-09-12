@@ -13,61 +13,53 @@ const teamData = await fetch(
 ---
 
 <Layout title="Forside">
-  <div class="hero_forside">
-    <div class="full full-bleed">
-      <div class="hero_header">
-        <h1>helllow</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores
-          adipisci consequatur corporis non, est perspiciatis odit quas magnam.
-          Placeat, repellendus! Facilis unde placeat cupiditate incidunt
-          consequuntur eligendi, rem pariatur porro.
-        </p>
-        <Button btn_text="book a meeting" variant="white_btn" size="big_btn" />
-      </div>
-      <img src="../images/forside_hero.png" alt="" class="hero_img" />
-    </div>
+  <div class="full full-bleed">
+    <article class="hero_header">
+      <h1>Adam Buschemia Business Consultant</h1>
+      <p>
+        Get help from Alex Moore, a professional business coach with advanced
+        experience on growth and business scaling.
+      </p>
+      <Button btn_text="book a meeting" variant="white_btn" size="big_btn" />
+    </article>
+    <img
+      class="full-bleed"
+      src="../images/forside_hero.png"
+      alt=""
+      class="hero_img"
+    />
+  </div>
 
+  <div class="hero_forside">
     <div class="box_over">
-      <div class="hero_card">
-        <h3>hehasd</h3>
+      <article class="hero_card">
+        <h6>Finance & Restructuring</h6>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi soluta
-          recusandae quasi, doloribus molestias aspernatur ullam quo pariatur
-          aliquid harum.
+          Get help from Alex Moore, a professional business coach with advanced
+          experience on growth and business scaling
+        </p>
+        <Button btn_text="our servies" variant="black_btn" size="big_btn" />
+      </article>
+      <article class="hero_card">
+        <h6>Our Approach</h6>
+        <p>
+          Get help from Alex Moore, a professional business coach with advanced
+          experience on growth and business scaling
+        </p>
+        <Button btn_text="more about" variant="black_btn" size="big_btn" />
+      </article>
+      <article class="hero_card">
+        <h6>Consultalk Result</h6>
+        <p>
+          Get help from Alex Moore, a professional business coach with advanced
+          experience on growth and business scaling
         </p>
         <Button
-          btn_text="hellow im button"
+          btn_text="explore out solution"
           variant="black_btn"
           size="big_btn"
         />
-      </div>
-      <div class="hero_card">
-        <h3>hehasd</h3>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi soluta
-          recusandae quasi, doloribus molestias aspernatur ullam quo pariatur
-          aliquid harum.
-        </p>
-        <Button
-          btn_text="hellow im button"
-          variant="black_btn"
-          size="big_btn"
-        />
-      </div>
-      <div class="hero_card">
-        <h3>hehasd</h3>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi soluta
-          recusandae quasi, doloribus molestias aspernatur ullam quo pariatur
-          aliquid harum.
-        </p>
-        <Button
-          btn_text="hellow im button"
-          variant="black_btn"
-          size="big_btn"
-        />
-      </div>
+      </article>
     </div>
   </div>
 
@@ -163,56 +155,61 @@ const teamData = await fetch(
 </Layout>
 
 <style>
-  .hero_forside {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    container-type: inline-size;
-  }
   .full {
+    container-type: inline-size;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    gap: 2rem;
+    background-color: var(--black-color);
+
+    & :is(h1, p) {
+      color: var(--white-color);
+    }
 
     @container (width < 800px) {
-      display: grid;
-      grid-template-columns: 1fr auto;
-
       & .hero_header {
-        z-index: 1;
-        padding: var(--even-padding-xs);
+        padding: var(--even-padding-m);
       }
       & img {
-        filter: blur(16px);
-      }
-      > * {
-        grid-column: 1 / span 2;
-        grid-row: 1 / span 2;
+        display: none;
       }
     }
   }
 
   .hero_header,
-  img {
+  .full img {
     flex: 1 1 500px;
-    max-width: 500px;
   }
 
+  .hero_header {
+    padding-left: max(1rem, 50% - var(--content-width) / 2);
+  }
+
+  .full img {
+    width: 100px;
+  }
   .box_over {
-    /* get box over the image box */
-    margin: -20px auto 0;
+    /********* get box over the image box *********/
+    margin: -30px auto 0;
     z-index: 1;
     display: flex;
     flex-flow: row wrap;
     gap: 2rem;
     & > * {
       flex: 1 1 200px;
+
+      display: flex;
+      flex-flow: wrap column;
+      align-items: flex-start;
+      justify-content: space-between;
+
       background-color: var(--transparent-black);
       backdrop-filter: blur(16px);
 
       color: var(--white-color);
       padding: var(--even-padding-s);
-      border-radius: var(--border-radius);
+      border-radius: var(--small-border-radius);
       outline: 1px solid var(--gray-color);
     }
   }

@@ -158,6 +158,10 @@ h6 {
   --flow-space: 0.5rlh;
 }
 
+button {
+  --flow-space: 0.5rlh;
+}
+
 .tag {
   & > {
     --flow-space: 0.25rlh;
