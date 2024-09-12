@@ -12,6 +12,28 @@ const { percent, pie_header } = Astro.props;
   <h4>{pie_header}</h4>
 </div>
 
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  let tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".a",
+      start: "top 80%",
+      end: "bottom end",
+      scrub: true,
+      markers: true, // viser mærker hvor animation starter og slutter
+    },
+  });
+
+  tl.from(".a", {
+    x: 800,
+    rotation: 40,
+  });
+</script>
+
 <style>
   .container {
     display: flex;
@@ -45,6 +67,14 @@ const { percent, pie_header } = Astro.props;
     initial-value: 0%;
   }
 
+  @keyframes --pie {
+    from {
+      --percent: 0%;
+    }
+    to {
+      --percent: 85%;
+    }
+  }
   .parent {
     --pie-color: color-mix(
       in oklab,
@@ -58,8 +88,13 @@ const { percent, pie_header } = Astro.props;
       var(--mix-with, 10% #000)
     );
 
+    /* ******* animation for when it comes in veiw point ******/
     --offset-pos: 5px;
-    animation: --pie 3s linear infinite;
+    animation: --pie 1ms linear 1;
+    animation-fill-mode: forwards;
+    animation-range-start: contain -100%;
+    view-timeline: --subjectReveal block;
+    animation-timeline: --subjectReveal;
 
     border: var(--offset-pos) solid transparent;
     background:
@@ -78,15 +113,6 @@ const { percent, pie_header } = Astro.props;
       offset-path: border-box;
       offset-distance: var(--percent);
       offset-anchor: 50% calc(50% - var(--offset-pos) / 2);
-    }
-  }
-
-  @keyframes --pie {
-    from {
-      --percent: 0%;
-    }
-    to {
-      --percent: 85%;
     }
   }
 
